@@ -1,0 +1,740 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block page_title %}Memberships Info{% endblock page_title %} 
+
+{% block content %}
+<body class="membership-page">
+    {% include "base/partials/navbar.html" %}
+    <main>
+      <h2>
+          Join AHII today & get exclusive access to Health resources for free
+        </h2>
+        
+        <div class="membership-plan">
+            <div class="plan-head">
+                <h3>Select membership level you want to join</h3>
+            </div>
+            <div class="plans">
+                <div class="plan">
+                    <div class="plan-heading">
+                        <span></span>
+              <div>
+                  <p>Guest Member</p>
+                  <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                  <p>AHII</p>
+                </div>
+            </div>
+
+            <div class="line-head"></div>
+            <div class="plan-body">
+                <p>
+                    Public health student should select is to access exclusive
+                resources, Trainings, & events.
+              </p>
+              <h6>$0 Yearly</h6>
+              <a href="register.html" class="login">
+                  BECOME A MEMBER
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  >
+                  <path
+                  d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                  fill="#f5f5f5"
+                  />
+                </svg>
+            </a>
+            </div>
+            
+            <div class="plan-options">
+                <div class="option">
+                    <div class="plan-icon">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="11"
+                        viewBox="0 0 10 11"
+                        fill="none"
+                        >
+                        <path
+                        d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                        fill="#1A1A1A"
+                        />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+            <div class="option">
+                <div class="plan-icon">
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="11"
+                  viewBox="0 0 10 11"
+                  fill="none"
+                  >
+                  <path
+                  d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+              </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+              </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                  >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+        </div>
+    </div>
+</div>
+<div class="plan-line"></div>
+<div class="plan">
+    <div class="plan-heading">
+        <span></span>
+              <div>
+                  <p>Guest Member</p>
+                  <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                  <p>AHII</p>
+                </div>
+            </div>
+            
+            <div class="line-head"></div>
+            <div class="plan-body">
+                <p>
+                    Public health student should select is to access exclusive
+                    resources, Trainings, & events.
+                </p>
+                <h6>$50 Yearly</h6>
+                <a href="register.html" class="login">
+                    BECOME A MEMBER
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    >
+                    <path
+                    d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                    fill="#f5f5f5"
+                    />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="plan-options">
+            <div class="option">
+                <div class="plan-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+        </div>
+        <div class="option">
+            <div class="plan-icon">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+            <div class="option">
+                <div class="plan-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+        </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      >
+                      <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+        </div>
+    </div>
+    <div class="plan-line"></div>
+    <div class="plan">
+            <div class="plan-heading">
+                <span></span>
+                <div>
+                    <p>Guest Member</p>
+                    <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                    <p>AHII</p>
+                </div>
+            </div>
+            
+            <div class="line-head"></div>
+            <div class="plan-body">
+              <p>
+                Public health student should select is to access exclusive
+                resources, Trainings, & events.
+            </p>
+              <h6>$150 Yearly</h6>
+              <a href="register.html" class="login">
+                BECOME A MEMBER
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                >
+                <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="#f5f5f5"
+                />
+            </svg>
+        </a>
+    </div>
+    
+    <div class="plan-options">
+        <div class="option">
+            <div class="plan-icon">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="11"
+                viewBox="0 0 10 11"
+                fill="none"
+                >
+                <path
+                d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                fill="#1A1A1A"
+                />
+            </svg>
+        </div>
+        <p>Student Member of AHII</p>
+    </div>
+    <div class="option">
+                <div class="plan-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+        </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      >
+                      <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+            <div class="option">
+                <div class="plan-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+            <p>Student Member of AHII</p>
+        </div>
+    </div>
+</div>
+          <div class="plan-line"></div>
+          <div class="plan">
+              <div class="plan-heading">
+                  <span></span>
+                  <div>
+                <p>Guest Member</p>
+                <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                <p>AHII</p>
+            </div>
+        </div>
+        
+        <div class="line-head"></div>
+        <div class="plan-body">
+            <p>
+                Public health student should select is to access exclusive
+                resources, Trainings, & events.
+            </p>
+            <h6>$250 Yearly</h6>
+              <a href="register.html" class="login">
+                  BECOME A MEMBER
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  >
+                  <path
+                  d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                  fill="#f5f5f5"
+                  />
+                </svg>
+            </a>
+            </div>
+            
+            <div class="plan-options">
+                <div class="option">
+                    <div class="plan-icon">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="11"
+                        viewBox="0 0 10 11"
+                        fill="none"
+                        >
+                        <path
+                        d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                        fill="#1A1A1A"
+                        />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      >
+                      <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+            <div class="option">
+                <div class="plan-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+              <div class="option">
+                  <div class="plan-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="11"
+                      viewBox="0 0 10 11"
+                      fill="none"
+                      >
+                      <path
+                      d="M1.65812 1.54439C1.65812 1.32315 1.74601 1.11097 1.90245 0.954533C2.05889 0.798093 2.27107 0.710205 2.49231 0.710205H9.16581C9.38705 0.710205 9.59923 0.798093 9.75567 0.954533C9.91211 1.11097 10 1.32315 10 1.54439V8.21789C10 8.43913 9.91211 8.65131 9.75567 8.80775C9.59923 8.96419 9.38705 9.05208 9.16581 9.05208C8.94457 9.05208 8.73239 8.96419 8.57595 8.80775C8.41951 8.65131 8.33162 8.43913 8.33162 8.21789V3.55812L1.41371 10.476C1.25638 10.628 1.04566 10.7121 0.826939 10.7102C0.608218 10.7083 0.398993 10.6205 0.244328 10.4659C0.089663 10.3112 0.00193216 10.102 3.15343e-05 9.88327C-0.00186909 9.66454 0.0822127 9.45383 0.234167 9.2965L7.15208 2.37858H2.49231C2.27107 2.37858 2.05889 2.29069 1.90245 2.13425C1.74601 1.97781 1.65812 1.76563 1.65812 1.54439Z"
+                      fill="#1A1A1A"
+                      />
+                    </svg>
+                </div>
+                <p>Student Member of AHII</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<section class="member-testimonial">
+    <h2>See why people are becoming AHII Member</h2>
+    
+    <div class="members-speak">
+        <div class="member-speak-row">
+            <div class="speaker">
+                <div class="testimony">
+                <span></span>
+                <p class="comment">
+                    "AHGII has truly thought of everything when it comes to
+                    catering to Public Health Professionals. The immediate access
+                    to resources has proven to be indispensable in my day-to-day
+                    work."
+                </p>
+                <div class="testimony-speaker">
+                    <div class="testimony-speaker-info">
+                        <h5>Dr. John Kelvin</h5>
+                        <p class="job-role">Eye Doctor</p>
+                    </div>
+                    <div class="testifyer-image">
+                    <img src="{% static 'img/Frame 126.png' %}" alt="Testifyer Image" />
+                  </div>
+                </div>
+            </div>
+        </div>
+            <div class="speaker">
+                <div class="testimony">
+                    <span></span>
+                    <p class="comment">
+                        "Joining AHGII was a pivotal moment in my professional
+                        journey. It's evident that AHGII values its members' privacy,
+                        making it a reliable and safe space for Public Health
+                        Professionals to come together."
+                    </p>
+                    <div class="testimony-speaker">
+                  <div class="testimony-speaker-info">
+                    <h5>Wade Warren</h5>
+                    <p class="job-role">Therapist</p>
+                </div>
+                <div class="testifyer-image">
+                    <img src="{% static 'img/Frame 127.png' %}" alt="Testifyer Image" />
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="speaker">
+                <div class="testimony">
+                    <span class="bar"></span>
+                    <p class="comment">
+                        "The secure environment they've built demonstrates their
+                        commitment to member safety, fostering a sense of belonging
+                        and collaboration that's second to none."
+                    </p>
+                    <div class="testimony-speaker">
+                        <div class="testimony-speaker-info">
+                            <h5>Dr. Guy Hawkins</h5>
+                            <p class="job-role">Professor</p>
+                        </div>
+                        <div class="testifyer-image">
+                            <img src="{% static 'img/Frame 128.png' %}" alt="Testifyer Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="member-speak-row">
+            <div class="speaker">
+                <div class="testimony">
+                    <span></span>
+                    <p class="comment">
+                        "AHGII has transformed the way I approach my work as a Public
+                        Health Professional. The quick and easy access to an array of
+                  resources is unparalleled. From research materials to
+                  insightful articles, AHGII has become my one-stop
+                  destination.”
+                </p>
+                <div class="testimony-speaker">
+                  <div class="testimony-speaker-info">
+                      <h5>Dr. Jenny Wilson</h5>
+                      <p class="job-role">Dentist Doctor</p>
+                    </div>
+                    <div class="testifyer-image">
+                        <img src="{% static 'img/Frame 129.png' %}" alt="Testifyer Image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="speaker">
+            <div class="testimony">
+                <span class="bar"></span>
+                <p class="comment">
+                    "Being a part of AHGII has been a game-changer for me. The
+                    platform's commitment to creating a thriving community for
+                    Public Health Professionals is evident in its seamless
+                    resource access and interactive features.
+                </p>
+                <div class="testimony-speaker">
+                    <div class="testimony-speaker-info">
+                        <h5>Cameron Williamson</h5>
+                        <p class="job-role">Student Doctor</p>
+                    </div>
+                    <div class="testifyer-image">
+                        <img src="{% static 'img/Frame 130.png' %}" alt="Testifyer Image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="speaker">
+              <div class="testimony">
+                  <span></span>
+                  <p class="comment">
+                      "The convenience of having a wide range of resources at my
+                  fingertips has been invaluable for my career growth. The
+                  platform's dedication to addIng an extra layer of trust,
+                  making it my preferred choice for staying connected with
+                  fellow professionals."
+                </p>
+                <div class="testimony-speaker">
+                    <div class="testimony-speaker-info">
+                        <h5>Leslie Alexander</h5>
+                        <p class="job-role">Dentist Doctor</p>
+                    </div>
+                    <div class="testifyer-image">
+                        <img src="{% static 'img/Frame 127.png' %}" alt="Testifyer Image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="faq">
+        <h2>Frequently asked questions from members & non-members</h2>
+
+        <div class="questions-answers">
+            <div class="faq-container">
+                <details>
+                    <summary>
+                        <span class="faq-title">
+                            Is there any refund if I don’t want to be a member
+                            again?</span
+                            >
+                            <div class="faq-icon">
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="10"
+                                viewBox="0 0 10 10"
+                                fill="none"
+                                >
+                                <path
+                                d="M1.65812 0.834188C1.65812 0.612947 1.74601 0.400769 1.90245 0.244328C2.05889 0.0878875 2.27107 0 2.49231 0L9.16581 0C9.38705 0 9.59923 0.0878875 9.75567 0.244328C9.91211 0.400769 10 0.612947 10 0.834188V7.50769C10 7.72893 9.91211 7.94111 9.75567 8.09755C9.59923 8.25399 9.38705 8.34188 9.16581 8.34188C8.94457 8.34188 8.73239 8.25399 8.57595 8.09755C8.41951 7.94111 8.33162 7.72893 8.33162 7.50769V2.84792L1.41371 9.76583C1.25638 9.91779 1.04566 10.0019 0.826939 9.99997C0.608218 9.99807 0.398993 9.91034 0.244328 9.75567C0.089663 9.60101 0.00193216 9.39178 3.15343e-05 9.17306C-0.00186909 8.95434 0.0822127 8.74362 0.234167 8.58629L7.15208 1.66838H2.49231C2.27107 1.66838 2.05889 1.58049 1.90245 1.42405C1.74601 1.26761 1.65812 1.05543 1.65812 0.834188Z"
+                                fill="#1A1A1A"
+                                />
+                            </svg>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        Unfortunately, AHGII does not offer refunds for membership
+                cancellations or non-renewals. Once a membership fee has been
+                paid, it is non-refundable. If you decide not to continue your
+                membership, you will still have access to AHGII's resources and
+                community until the end of your current membership period. We
+                recommend making an informed decision about your membership
+                before subscribing. If you have any further questions or
+                concerns, please feel free to reach out to our support team.
+            </div>
+        </details>
+            <div class="line-head"></div>
+            <details>
+                <summary>
+                    <span class="faq-title">
+                        Who teaches courses on Atheros Learning?
+                    </span>
+                    <div class="faq-icon">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="10"
+                        viewBox="0 0 10 10"
+                        fill="none"
+                        >
+                        <path
+                        d="M1.65812 0.834188C1.65812 0.612947 1.74601 0.400769 1.90245 0.244328C2.05889 0.0878875 2.27107 0 2.49231 0L9.16581 0C9.38705 0 9.59923 0.0878875 9.75567 0.244328C9.91211 0.400769 10 0.612947 10 0.834188V7.50769C10 7.72893 9.91211 7.94111 9.75567 8.09755C9.59923 8.25399 9.38705 8.34188 9.16581 8.34188C8.94457 8.34188 8.73239 8.25399 8.57595 8.09755C8.41951 7.94111 8.33162 7.72893 8.33162 7.50769V2.84792L1.41371 9.76583C1.25638 9.91779 1.04566 10.0019 0.826939 9.99997C0.608218 9.99807 0.398993 9.91034 0.244328 9.75567C0.089663 9.60101 0.00193216 9.39178 3.15343e-05 9.17306C-0.00186909 8.95434 0.0822127 8.74362 0.234167 8.58629L7.15208 1.66838H2.49231C2.27107 1.66838 2.05889 1.58049 1.90245 1.42405C1.74601 1.26761 1.65812 1.05543 1.65812 0.834188Z"
+                        fill="#1A1A1A"
+                        />
+                    </svg>
+                </div>
+            </summary>
+            <div class="faq-content">
+                The authors of the courses are mostly Atheros team members, who
+                worked on tens of digital solutions for big international
+                companies, projects for small startups, and internal Atheros
+                products. By solving the most sophisticated problems in the
+                fields, they gained proper knowledge, which is now available for
+                you.
+            </div>
+            </details>
+            <div class="line-head"></div>
+            <details>
+              <summary>
+                  <span class="faq-title"
+                  >How is the course different from other UX/UI design
+                  courses?</span
+                  >
+                  <div class="faq-icon">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 0.834188C1.65812 0.612947 1.74601 0.400769 1.90245 0.244328C2.05889 0.0878875 2.27107 0 2.49231 0L9.16581 0C9.38705 0 9.59923 0.0878875 9.75567 0.244328C9.91211 0.400769 10 0.612947 10 0.834188V7.50769C10 7.72893 9.91211 7.94111 9.75567 8.09755C9.59923 8.25399 9.38705 8.34188 9.16581 8.34188C8.94457 8.34188 8.73239 8.25399 8.57595 8.09755C8.41951 7.94111 8.33162 7.72893 8.33162 7.50769V2.84792L1.41371 9.76583C1.25638 9.91779 1.04566 10.0019 0.826939 9.99997C0.608218 9.99807 0.398993 9.91034 0.244328 9.75567C0.089663 9.60101 0.00193216 9.39178 3.15343e-05 9.17306C-0.00186909 8.95434 0.0822127 8.74362 0.234167 8.58629L7.15208 1.66838H2.49231C2.27107 1.66838 2.05889 1.58049 1.90245 1.42405C1.74601 1.26761 1.65812 1.05543 1.65812 0.834188Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+                </div>
+            </summary>
+            <div class="faq-content">
+                The key aspect is that this course provides a clear overview of
+                the whole design process and principles, that represent
+                necessary information for being successful within the industry.
+                You will also get direct support from the author of this course,
+                who is ready to answer all your questions and care about your
+                next steps.
+            </div>
+        </details>
+        <div class="line-head"></div>
+        <details>
+            <summary>
+                <span class="faq-title"
+                >Do I get a certificate after completing a course?</span
+                >
+                <div class="faq-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 0.834188C1.65812 0.612947 1.74601 0.400769 1.90245 0.244328C2.05889 0.0878875 2.27107 0 2.49231 0L9.16581 0C9.38705 0 9.59923 0.0878875 9.75567 0.244328C9.91211 0.400769 10 0.612947 10 0.834188V7.50769C10 7.72893 9.91211 7.94111 9.75567 8.09755C9.59923 8.25399 9.38705 8.34188 9.16581 8.34188C8.94457 8.34188 8.73239 8.25399 8.57595 8.09755C8.41951 7.94111 8.33162 7.72893 8.33162 7.50769V2.84792L1.41371 9.76583C1.25638 9.91779 1.04566 10.0019 0.826939 9.99997C0.608218 9.99807 0.398993 9.91034 0.244328 9.75567C0.089663 9.60101 0.00193216 9.39178 3.15343e-05 9.17306C-0.00186909 8.95434 0.0822127 8.74362 0.234167 8.58629L7.15208 1.66838H2.49231C2.27107 1.66838 2.05889 1.58049 1.90245 1.42405C1.74601 1.26761 1.65812 1.05543 1.65812 0.834188Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+                </div>
+            </summary>
+            <div class="faq-content">
+                Yes, after successfully finishing the quizzes within the course,
+                you can download a certificate, proving all gained knowledge and
+                skills.
+            </div>
+        </details>
+        <div class="line-head"></div>
+        <details>
+            <summary>
+                <span class="faq-title"
+                >Are there any hidden fees within the course?</span
+                >
+                <div class="faq-icon">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    >
+                    <path
+                    d="M1.65812 0.834188C1.65812 0.612947 1.74601 0.400769 1.90245 0.244328C2.05889 0.0878875 2.27107 0 2.49231 0L9.16581 0C9.38705 0 9.59923 0.0878875 9.75567 0.244328C9.91211 0.400769 10 0.612947 10 0.834188V7.50769C10 7.72893 9.91211 7.94111 9.75567 8.09755C9.59923 8.25399 9.38705 8.34188 9.16581 8.34188C8.94457 8.34188 8.73239 8.25399 8.57595 8.09755C8.41951 7.94111 8.33162 7.72893 8.33162 7.50769V2.84792L1.41371 9.76583C1.25638 9.91779 1.04566 10.0019 0.826939 9.99997C0.608218 9.99807 0.398993 9.91034 0.244328 9.75567C0.089663 9.60101 0.00193216 9.39178 3.15343e-05 9.17306C-0.00186909 8.95434 0.0822127 8.74362 0.234167 8.58629L7.15208 1.66838H2.49231C2.27107 1.66838 2.05889 1.58049 1.90245 1.42405C1.74601 1.26761 1.65812 1.05543 1.65812 0.834188Z"
+                    fill="#1A1A1A"
+                    />
+                </svg>
+            </div>
+        </summary>
+              <div class="faq-content">
+                  Absolutely not! You will gain all benefits and features with the
+                  one-time payment, unlocking the course.
+                </div>
+            </details>
+            <div class="line-head"></div>
+        </div>
+        </div>
+    </section>
+</main>
+
+{% include "base/partials/push_modal_container.html" %}
+
+{% include "base/partials/footer.html" %}
+
+{% include "base/partials/backtotop.html" %} 
+<script src="{% static "js/app.js" %}"></script>
+</body>
+{% endblock content %}

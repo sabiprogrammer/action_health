@@ -1,0 +1,479 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block page_title %}Journals{% endblock page_title %} 
+
+{% block content %}
+<body>
+
+  {% include "base/partials/navbar.html" %}
+
+  <main id="main-journal">
+      <section id="journals">
+        <h2>
+          Explore our extensive collection of peer-reviewed journals, covering a
+          wide range of topics.
+        </h2>
+  
+        <div class="sort-journal">
+          <div class="sort-options">
+            <div class="sort-active sort-all-option">
+              <p>All</p>
+            </div>
+            <div class="sort-option">
+              <p>Anatomy</p>
+            </div>
+            <div class="sort-option">
+              <p>Epidemiology</p>
+            </div>
+            <div class="sort-option">
+              <p>Biostatistics</p>
+            </div>
+            <div class="sort-option">
+              <p>Health Policy and Management</p>
+            </div>
+            <div class="sort-option">
+              <p>Environmental Health</p>
+            </div>
+            <div class="sort-option">
+              <p>Public Health Ethics</p>
+            </div>
+            <div class="sort-option">
+              <p>Anatomy</p>
+            </div>
+          </div>
+          <div class="sort-options">
+            <div class="sort-option">
+              <p>Global Health</p>
+            </div>
+            <div class="sort-option">
+              <p>Health Promotion</p>
+            </div>
+            <div class="sort-option">
+              <p>Social and Behavioral Sciences</p>
+            </div>
+            <div class="sort-option">
+              <p>Public Health Nutrition</p>
+            </div>
+            <div class="sort-option">
+              <p>Maternal and Child Health</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="journals">
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Ethics</p>
+            </div>
+            <h4>
+              Allocation of Limited COVID-19 Vaccines: An Ethical Dilemma in
+              Public Health
+            </h4>
+            <div class="content">
+              <p>
+                This case study would explore the ethical challenges faced by
+                health authorities when distributing a limited supply of
+                COVID-19 vaccines among different population grou ...
+              </p>
+            </div>
+            <h5>By Kevin McCracken, David R Phillips, and Dhru...</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Epidemiology</p>
+            </div>
+            <h4>
+              Epidemiological Study of a Foodborne Illness Outbreak: Unraveling
+              the Source and Sp...
+            </h4>
+            <div class="content">
+              <p>
+                Through case interviews, cohort studies, and environmental
+                assessments, the study would aim to pinpoint the specific food
+                source responsible for the outbreak.
+              </p>
+            </div>
+            <h5>By Dr. Nancy Krieger</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/open-access-icon.svg' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Epidemiology</p>
+            </div>
+            <h4>
+              Tuberculosis Outbreak Investigation: A Multidimensional
+              Epidemiolo...
+            </h4>
+            <div class="content">
+              <p>
+                This case study would focus on a localized tuberculosis outbreak
+                and conduct a comprehensive epidemiological investigation. It
+                would explore the factors ...
+              </p>
+            </div>
+            <h5>By Prof. Tracy Kidder & Dr. Paul Farmer</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Paid Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Environmental Health</p>
+            </div>
+            <h4>
+              Lead Contamination in Drinking Water: Lessons from a Public Health
+              Crisis
+            </h4>
+            <div class="content">
+              <p>
+                The study would highlight the importance of effective
+                communication, regulatory oversight, and preventive measures to
+                ensure safe drinking water for all residents.
+              </p>
+            </div>
+            <h5>By Mr. Anne Fadiman</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/open-access-icon.svg' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+  
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Nutrition</p>
+            </div>
+            <h4>
+              Impact of School-Based Nutrition Intervention on Childhood
+              Obesity: A Longit ...
+            </h4>
+            <div class="content">
+              <p>
+                This case study would focus on a specific school district that
+                implemented a comprehensive nutrition intervention aimed at
+                reducing childhood obesity rates.
+              </p>
+            </div>
+            <h5>By Mrs. Lia Lee & Dr. Kelvin Seth</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/open-access-icon.svg' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+  
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Ethics</p>
+            </div>
+            <h4>
+              Balancing Individual Rights and Public Health: A Case Study of
+              Mandatory Quarant...
+            </h4>
+            <div class="content">
+              <p>
+                The study would explore concepts of paternalism, informed
+                consent, and the greater good, highlighting the role of public
+                health ethics in crafting effective and ethil ...
+              </p>
+            </div>
+            <h5>By Lisa F. Berkman</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Paid Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+  
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Epidemiology</p>
+            </div>
+            <h4>
+              Epidemiological Study of a Foodborne Illness Outbreak: Unraveling
+              the Source and Sp...
+            </h4>
+            <div class="content">
+              <p>
+                Through case interviews, cohort studies, and environmental
+                assessments, the study would aim to pinpoint the specific food
+                source responsible for the outbreak.
+              </p>
+            </div>
+            <h5>By Dr. Nancy Krieger</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/open-access-icon.svg' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+  
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Nutrition</p>
+            </div>
+            <h4>
+              Impact of School-Based Nutrition Intervention on Childhood
+              Obesity: A Longit ...
+            </h4>
+            <div class="content">
+              <p>
+                This case study would focus on a specific school district that
+                implemented a comprehensive nutrition intervention aimed at
+                reducing childhood obesity rates.
+              </p>
+            </div>
+            <h5>By Mrs. Lia Lee & Dr. Kelvin Seth</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/open-access-icon.svg' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Ethics</p>
+            </div>
+            <h4>
+              Allocation of Limited COVID-19 Vaccines: An Ethical Dilemma in
+              Public Health
+            </h4>
+            <div class="content">
+              <p>
+                This case study would explore the ethical challenges faced by
+                health authorities when distributing a limited supply of
+                COVID-19 vaccines among different population grou ...
+              </p>
+            </div>
+            <h5>By Kevin McCracken, David R Phillips, and Dhru...</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Epidemiology</p>
+            </div>
+            <h4>
+              Tuberculosis Outbreak Investigation: A Multidimensional
+              Epidemiolo...
+            </h4>
+            <div class="content">
+              <p>
+                This case study would focus on a localized tuberculosis outbreak
+                and conduct a comprehensive epidemiological investigation. It
+                would explore the factors ...
+              </p>
+            </div>
+            <h5>By Prof. Tracy Kidder & Dr. Paul Farmer</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Paid Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Edited Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Public Health Ethics</p>
+            </div>
+            <h4>
+              Balancing Individual Rights and Public Health: A Case Study of
+              Mandatory Quarant...
+            </h4>
+            <div class="content">
+              <p>
+                The study would explore concepts of paternalism, informed
+                consent, and the greater good, highlighting the role of public
+                health ethics in crafting effective and ethil ...
+              </p>
+            </div>
+            <h5>By Lisa F. Berkman</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/paid-access-icon.svg' %}" alt="Paid access icon" />
+                <p>Paid Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+  
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>Environmental Health</p>
+            </div>
+            <h4>
+              Lead Contamination in Drinking Water: Lessons from a Public Health
+              Crisis
+            </h4>
+            <div class="content">
+              <p>
+                The study would highlight the importance of effective
+                communication, regulatory oversight, and preventive measures to
+                ensure safe drinking water for all residents.
+              </p>
+            </div>
+            <h5>By Mr. Anne Fadiman</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static 'imgopen-access-icon.svg/' %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="not-found">
+            <div class="journal-head">
+              <span></span>
+              <p>Not Found</p>
+            </div>
+            <h4>There is currently no journal for the selected topic</h4>
+            <div class="content">
+              <p>Would you like to add one?</p>
+            </div>
+            <div class="header-cta">
+              <a href="#" class="publish">
+                Publish
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M11.406 15.7321L8.36699 12.6931C8.90999 11.7371 9.70199 10.7901 10.742 9.85512C12.083 8.64712 14.45 6.60512 17.842 3.72912C18.1856 3.43761 18.6264 3.28603 19.0766 3.30449C19.5269 3.32294 19.9537 3.51007 20.2724 3.82872C20.591 4.14737 20.7782 4.57422 20.7966 5.02448C20.8151 5.47473 20.6635 5.91546 20.372 6.25912C17.492 9.65712 15.451 12.0241 14.247 13.3591C13.312 14.3961 12.365 15.1871 11.406 15.7321ZM6.98999 14.1461L9.95499 17.1101L8.58899 19.0161L3.31299 20.8111L5.08399 15.5111L6.98999 14.1461Z"
+                    fill="#1A1A1A"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+  
+        <div class="pagination">
+       
+        </div>
+      </section>
+      <section class="banner">
+        <p>Have your own journal you will like to publish through AHII?</p>
+        <a href="#" class="login">
+          Publish Your Journal
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </section>
+  </main>
+
+  {% include "base/partials/push_modal_container.html" %}
+
+  {% include "base/partials/footer.html" %}
+  
+  {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+</body>
+
+{% endblock content %}

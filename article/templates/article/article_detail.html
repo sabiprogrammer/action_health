@@ -1,0 +1,268 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% block page_title %}{{article.title | title}}{% endblock page_title %}
+
+{% block content %}
+<body>
+    {% include "base/partials/navbar.html" %}
+    
+    <main id="single-journal" class="single-article">
+        <div class="single-journal-head">
+            <div class="journal-title">
+                <div class="journals">
+                    {% include 'base/partials/flash_messages.html' %}
+                    <article class="journal">
+                        {% if  article.field %}
+                        <div class="journal-head">
+                            <span></span>
+                            <p>{{ article.field | title}} - Article</p>
+                        </div>
+                        {% endif %}
+                        <h4>{{ article.title | title}}</h4>
+                        {% if  article.sub_title %}
+                        <div class="content">
+                            <p>
+                                {{ article.sub_title}}
+                            </p>
+                        </div>
+                        {% endif %}
+                        <div class="reviewer">
+                            <p><strong>Published:</strong> {{ article.date_published|date:"jS F Y" }}</p>
+                            <div>
+                                <div class="reviewer-image">
+                                    <img src="{% static 'img/pubimg1.png' %}" alt="Picture of Author" />
+                                </div>
+                                <div class="reviewer-name">
+                                    <p>{{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title }}
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        >
+                                        <path
+                                            d="M5.33344 4.66667C5.33344 4.48986 5.40368 4.32029 5.5287 4.19526C5.65373 4.07024 5.8233 4 6.00011 4H11.3334C11.5103 4 11.6798 4.07024 11.8048 4.19526C11.9299 4.32029 12.0001 4.48986 12.0001 4.66667V10C12.0001 10.1768 11.9299 10.3464 11.8048 10.4714C11.6798 10.5964 11.5103 10.6667 11.3334 10.6667C11.1566 10.6667 10.9871 10.5964 10.862 10.4714C10.737 10.3464 10.6668 10.1768 10.6668 10V6.276L5.13811 11.8047C5.01237 11.9261 4.84397 11.9933 4.66917 11.9918C4.49438 11.9903 4.32717 11.9202 4.20356 11.7965C4.07996 11.6729 4.00984 11.5057 4.00833 11.3309C4.00681 11.1561 4.074 10.9877 4.19544 10.862L9.72411 5.33333H6.00011C5.8233 5.33333 5.65373 5.2631 5.5287 5.13807C5.40368 5.01305 5.33344 4.84348 5.33344 4.66667Z"
+                                            fill="#1A1A1A"
+                                        />
+                                        </svg>
+                                    </p>
+                                    <p>Author</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                  <div class="single-article-content">
+                      {% if article.picture %}
+                        <div class="article-image-1">
+                          <img src="{{ article.get_image_url }}" alt="{{ article.title }}">
+                        </div>
+                      {% endif %}
+                      <p>
+                        {{ article.body}}
+                      </p>
+                      
+                      <div class="open-access">
+                          <h3><span></span>Common Causes of Student Stress</h3>
+                      </div>
+  
+                      <p>
+                      Treatment efficacy for eating disorders (EDs) is modest and
+                      guidelines differ. We summarized findings/quality of (network)
+                      meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
+                      Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+                      control), using (anorexia or bulimia or eating disorder) AND
+                      (meta-analy*)
+                      </p>
+                      <p>
+                      Antidepressants, stimulants outperformed placebo, despite lower
+                      acceptability, as did CBT-ED versus waitlist/no treatment.
+                      Family-based therapy is effective in AN and BN (adolescents).
+                      CBT-ED has the largest efficacy in BN (adults), followed by
+                      antidepressants, as well as psychotherapy in BED (mixed).
+                      Medications have short-term efficacy in BED (adults).
+                      </p>
+                      <p>
+                              Another study found that much of high school students' stress originates from school and activities, and that this chronic stress can persist into college years and lead to academic disengagement and mental health problems.
+                      </p>
+                      <div class="article-image-3">
+                          <img src="{% static 'img/image 7.png' %}" alt="Article Image">
+                      </div>
+  
+                      <div class="text-quote">
+                          <p>
+                              Treatment efficacy for eating disorders (EDs) is modest and guidelines differ. We summarized findings/quality of (network) meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs. Systematic meta-review ((N)MA of RCTs, ED, active/inactive control), using (anorexia or bulimia or eating disorder) AND (meta-analy
+                          </p>
+                          <h4>Dr. Kelvin Makiania</h4>
+                      </div>
+                      <p>
+                          <strong>Related:</strong>
+                          <a href="https://www.verywellmind.com/top-school-stress-relievers-for-students-3145179" target="_blank">How Self Hypnosis Can Help You Manage Stress</a>
+                      </p>
+                  </div> 
+         
+                  <div class="abstract-footer">
+                      <div class="type-of-access">
+                      <div>
+                          <img src="{% static 'img/Vector.svg' %}" alt="share icon" />
+                      </div>
+                      <p>Share this artilce</p>
+                      </div>
+                      <div class="type-of-access">
+                          <div>
+  
+                              <img src="{% static 'img/Group.svg' %}" alt="Bookmark icon" />
+                          </div>
+                      <p>Bookmark this article</p>
+                      </div>
+             
+                  </div>
+              </div>
+          </div>
+          <div class="journal-publisher">
+            <div class="publisher-plan">
+              <div class="membertype">
+                <span></span>
+                <div>
+                  <p>Training</p>
+                  <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                  <p>AHII</p>
+                </div>
+              </div>
+            </div>
+           
+            <div class="publisher-details">
+              <h3>Epidemiology Postgraduate Pathway in Health and Management</h5>
+              <h6>Beginner Professional Course</h6>
+              <p>Organize an online hackathon focused on epidemiology and data analysis. Participants can form teams and work on real-world public </p>
+            </div>
+             <div class="publisher-img">
+              <a href="#"> 
+                  <img src="{% static 'img/Frame 108.png' %}" alt="Stock Image" />
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        
+        <section class="banner">
+          <p>Have an article you will like to publish as health expert?</p>
+          <a href="{% url 'account:login_page' %}" class="login">
+            Become Member
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+        </section>
+  
+        <section id="journals" class="footer-journals">
+          <h2 class="more-health-journals">
+            Explore other articles from this author
+          </h2>
+          <section id="main-articles">
+            <div id="journals">
+              <div class="journals">
+                {% for article in author_articles %}
+                    <article class="journal">
+                        <div class="journal-left">
+                        <h4>
+                            <a href="{{ article.get_absolute_url }}">
+                                {{ article.title | title | truncatechars:80}}
+                            </a>
+                        </h4>
+            
+                        <h5>By {{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+                        <div class="access-type">
+                            <div>
+                            <span class="anatomy"></span>
+                            <p>{{ article.field | title}}</p>
+                            </div>
+                            <div>
+                            <ul>
+                                <li>{{ article.date_published|date:"jS F Y" }}</li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="journal-right">
+                            {% if article.picture %}
+                                <img src="{{ article.get_image_url }}" alt="{{ article.title}}" />
+                            {% else %}
+                                <img src="{% static 'img/default_article_pic.png' %}" alt="{{ article.title}}" />
+                            {% endif %}
+                        </div>
+                    </article>
+                {% empty %}
+                    <h3>This author has not published any other article yet.</h3>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section id="journals" class="footer-journals">
+          <h2 class="more-health-journals">
+            Other related articles
+          </h2>
+          <section id="main-articles">
+            <div id="journals">
+              <div class="journals">
+                {% for article in related_articles %}
+                    <article class="journal">
+                        <div class="journal-left">
+                        <h4>
+                            <a href="{{ article.get_absolute_url }}">
+                                {{ article.title | title | truncatechars:80}}
+                            </a>
+                        </h4>
+            
+                        <h5>By {{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+                        <div class="access-type">
+                            <div>
+                            <span class="anatomy"></span>
+                            <p>{{ article.field | title}}</p>
+                            </div>
+                            <div>
+                            <ul>
+                                <li>{{ article.date_published|date:"jS F Y" }}</li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="journal-right">
+                            {% if article.picture %}
+                                <img src="{{ article.get_image_url }}" alt="{{ article.title}}" />
+                            {% else %}
+                                <img src="{% static 'img/default_article_pic.png' %}" alt="{{ article.title}}" />
+                            {% endif %}
+                        </div>
+                    </article>
+                {% empty %}
+                    <h3>No related article has been published yet.</h3>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      {% include "base/partials/push_modal_container.html" %}
+
+      {% include "base/partials/footer.html" %}
+      
+      {% include "base/partials/backtotop.html" %}
+
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/user.js" %}"></script>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,451 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% block page_title %}{{journal.title | title}}{% endblock page_title %}
+
+{% block content %}
+<body>
+  {% include "base/partials/navbar.html" %}
+
+  <main id="single-journal">
+    <div class="single-journal-head">
+      <div class="journal-title">
+        <div class="journals">
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>{{ journal.field | title}} - Journal</p>
+            </div>
+            <h4>
+              {{ journal.title | title}}
+            </h4>
+            {% if journal.sub_title %}
+              <div class="content">
+                <p>
+                  {{ journal.sub_title }}
+                </p>
+              </div>
+            {% endif %}
+
+            <div class="access-type">
+              <div>
+                <img
+                  src="{% static 'img/paid-access-icon.svg' %}"
+                  alt="Paid access icon"
+                />
+                <p>Paid Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+              <div>
+                <p>Published: {{ journal.date_published|date:"jS F Y" }}</p>
+              </div>
+            </div>
+            {% if journal.reviewed_by %}
+              <div class="reviewer">
+                <p>Reviewed by</p>
+                <div>
+                  <img src="{% static 'img/reviewer1.png' %}" alt="Picture of reviewer" />
+                  <div class="reviewer-name">
+                    <p>{{ journal.reviewed_by | title}}</p>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M5.33344 4.66667C5.33344 4.48986 5.40368 4.32029 5.5287 4.19526C5.65373 4.07024 5.8233 4 6.00011 4H11.3334C11.5103 4 11.6798 4.07024 11.8048 4.19526C11.9299 4.32029 12.0001 4.48986 12.0001 4.66667V10C12.0001 10.1768 11.9299 10.3464 11.8048 10.4714C11.6798 10.5964 11.5103 10.6667 11.3334 10.6667C11.1566 10.6667 10.9871 10.5964 10.862 10.4714C10.737 10.3464 10.6668 10.1768 10.6668 10V6.276L5.13811 11.8047C5.01237 11.9261 4.84397 11.9933 4.66917 11.9918C4.49438 11.9903 4.32717 11.9202 4.20356 11.7965C4.07996 11.6729 4.00984 11.5057 4.00833 11.3309C4.00681 11.1561 4.074 10.9877 4.19544 10.862L9.72411 5.33333H6.00011C5.8233 5.33333 5.65373 5.2631 5.5287 5.13807C5.40368 5.01305 5.33344 4.84348 5.33344 4.66667Z"
+                        fill="#1A1A1A"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </article>
+          <div class="journal-footer">
+            <div>
+              <p>AHII: 36084848</p>
+              <p>Volume:2023</p>
+            </div>
+            <p>
+              <strong>Keyword:</strong> {{ journal.keywords | title}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="journal-publisher">
+        <div class="publisher-img">
+          <img src="{% static 'img/pubimg1.png' %}" alt="logo" />
+        </div>
+        <div class="publisher-details">
+          <div>
+            <a href="#">
+              Dr. Mary Okafor
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M7.99992 7.5C7.99992 7.23478 8.10528 6.98043 8.29281 6.79289C8.48035 6.60536 8.7347 6.5 8.99992 6.5H16.9999C17.2651 6.5 17.5195 6.60536 17.707 6.79289C17.8946 6.98043 17.9999 7.23478 17.9999 7.5V15.5C17.9999 15.7652 17.8946 16.0196 17.707 16.2071C17.5195 16.3946 17.2651 16.5 16.9999 16.5C16.7347 16.5 16.4803 16.3946 16.2928 16.2071C16.1053 16.0196 15.9999 15.7652 15.9999 15.5V9.914L7.70692 18.207C7.51832 18.3892 7.26571 18.49 7.00352 18.4877C6.74132 18.4854 6.49051 18.3802 6.3051 18.1948C6.11969 18.0094 6.01452 17.7586 6.01224 17.4964C6.00997 17.2342 6.11076 16.9816 6.29292 16.793L14.5859 8.5H8.99992C8.7347 8.5 8.48035 8.39464 8.29281 8.20711C8.10528 8.01957 7.99992 7.76522 7.99992 7.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+            </a>
+          </div>
+          <p>Public Health Specialist at St. Luke Hospital Ghana</p>
+        </div>
+        <div class="publisher-plan">
+          <div class="membertype">
+            <span></span>
+            <div>
+              <p>Associate Member</p>
+              <img src="{% static 'img/logo1.png' %}" alt="logo" />
+              <p>AHII</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="abstract-authors">
+      <div class="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-text">
+          <p>
+            {{ journal.abstract }}
+          </p>
+          <h3>Full Journal</h3>
+          <p>
+            {{ journal.full_journal }}
+          </p>
+          
+        </div>
+        {% comment %}
+        <div class="open-access">
+          <h3><span></span>Chapter 1: Introduction</h3>
+          <p>
+            Treatment efficacy for eating disorders (EDs) is modest and
+            guidelines differ. We summarized findings/quality of (network)
+            meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
+            Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+            control), using (anorexia or bulimia or eating disorder) AND
+            (meta-analy*).
+          </p>
+          <p>
+            In PubMed/PsycINFO/Cochrane database up to December 15th, 2020.
+            Standardized mean difference, odds/risk ratio vs control were
+            summarized at end of treatment and follow-up. Interventions
+            involving.
+          </p>
+          <p>
+            Antidepressants, stimulants outperformed placebo, despite lower
+            acceptability, as did CBT-ED versus waitlist/no treatment.
+            Family-based therapy is effective in AN and BN (adolescents).
+            CBT-ED has the largest efficacy in BN (adults), followed by
+            antidepressants, as well as psychotherapy in BED (mixed).
+            Medications have short-term efficacy in BED (adults).
+          </p>
+          <div class="open-access-image">
+            <img
+              src="{% static 'img/image 5.png' %}"
+              alt="Patient and diagnosis interval visual"
+            />
+          </div>
+
+          <p>
+            Treatment efficacy for eating disorders (EDs) is modest and
+            guidelines differ. We summarized findings/quality of (network)
+            meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
+            Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+            control), using (anorexia or bulimia or eating disorder) AND
+            (meta-analy*)
+          </p>
+          <p>
+            In PubMed/PsycINFO/Cochrane database up to December 15th, 2020.
+            Standardized mean difference, odds/risk ratio vs control were
+            summarized at end of treatment and follow-up. Interventions
+            involving family (family-based therapy, FBT..
+          </p>
+          <div class="text-quote">
+            <p>
+              Treatment efficacy for eating disorders (EDs) is modest and
+              guidelines differ. We summarized findings/quality of (network)
+              meta-analyses (N)MA of randomized controlled trials (RCTs) in
+              EDs. Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+              control), using (anorexia or bulimia or eating disorder) AND
+              (meta-analy
+            </p>
+            <h4>Dr. Kelvin Makiania</h4>
+          </div>
+          <p>
+            Treatment efficacy for eating disorders (EDs) is modest and
+            guidelines differ. We summarized findings/quality of (network)
+            meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
+            Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+            control), using (anorexia or bulimia or eating disorder) AND
+            (meta-analy*)
+          </p>
+          <p>
+            Antidepressants, stimulants outperformed placebo, despite lower
+            acceptability, as did CBT-ED versus waitlist/no treatment.
+            Family-based therapy is effective in AN and BN (adolescents).
+            CBT-ED has the largest efficacy in BN (adults), followed by
+            antidepressants, as well as psychotherapy in BED (mixed).
+            Medications have short-term efficacy in BED (adults).
+          </p>
+        </div>
+        <div class="open-access">
+          <h3><span></span>Chapter 2: Introduction</h3>
+          <p>
+            Treatment efficacy for eating disorders (EDs) is modest and
+            guidelines differ. We summarized findings/quality of (network)
+            meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
+            Systematic meta-review ((N)MA of RCTs, ED, active/inactive
+            control), using (anorexia or bulimia or eating disorder) AND
+            (meta-analy*)
+          </p>
+
+          <p>
+            In PubMed/PsycINFO/Cochrane database up to December 15th, 2020.
+            Standardized mean difference, odds/risk ratio vs control were
+            summarized at end of treatment and follow-up. Interventions
+            involving family (family-based therapy, FBT.
+          </p>
+
+          <p>
+            otperformed active control in adults/adolescents with anorexia
+            nervosa (AN), and in adolescents with bulimia nervosa (BN). In
+            adults with BN, individual cognitive behavioural therapy (CBT)-ED
+            had the broadest efficacy versus active control; also,
+            antidepressants outperformed active. In mixed age groups with
+            binge-eating disorder (BED), psychotherapy, and lisdexamfetamine
+            outperformed active.
+          </p>
+
+          <div class="closing">
+            <p>
+              In conclusion, this study showed that in Morocco, the biopsy
+              report interval and the treatment interval are within
+              international standards; however, the diagnosis interval and the
+              health services interval need to be improved.
+            </p>
+            <h6>Author Statements</h6>
+            <p>
+              international standards; however, the diagnosis interval and the
+              health services interval need to be improved.
+            </p>
+            <h6>Acknowledgements</h6>
+            <p>
+              The Authors are grateful to the patients and families who agreed
+              to participate in the study. We are also grateful to the nurses
+              and doctors who administered the questionnaire.
+            </p>
+            <h6>Ethics Approval</h6>
+            <p>
+              This study was approved by the IARC Ethics Committee and the
+              Ethics Committee for Biomedical Research, Medical and Pharmacy
+              School, Mohammed V – Souissi University, Rabat, Morocco.
+            </p>
+            <h6>Funding</h6>
+            <p>
+              Funding was received from the Lalla Salma Foundation, Morocco.
+            </p>
+            <h6>Competing Interests</h6>
+            <p>The authors declare no competing interests.</p>
+            <h6>Disclaimer</h6>
+            <p>
+              Where authors are identified as personnel of the International
+              Agency for Research on Cancer/World Health Organization, the
+              authors alone are responsible for the views expressed in this
+              article, and they do not necessarily represent the decisions,
+              policy, or views of the International Agency for Research on
+              Cancer/World Health Organization.
+            </p>
+            <h6>References</h6>
+            <p>
+              1. F. Walter, A. Webster, S. Scott, J. Emery <br />The Andersen
+              Model of
+              <a href="#" target="_blank"
+                >Total Patient Delay: a systematic review of its
+                application</a
+              >
+              in cancer diagnosi2
+            </p>
+            <p>
+              2. J Health Serv Res Policy, 17 (2012), pp. 110-118.
+              <a href="#" target="_blank">View article</a>
+            </p>
+            <p>
+              3. CrossRefView in ScopusGoogle Scholar. Espina, F. McKenzie, I.
+              Dos-Santos-Silva
+            </p>
+            <p>
+              4. Delayed presentation and diagnosis of
+              <a href="#" target="_blank">breast cancer in African women</a>:
+              a systematic review
+            </p>
+            <p>5. Ann Epidemiol, 27 (2017), pp. 659-671.e7</p>
+          </div>
+        </div>
+        
+
+        <div class="access-blur"></div>
+
+        <div class="access-modal">
+          <h5>Get full access to this journal</h5>
+          <p>
+            This is a premium journal. Subscribe to read the entire journal
+          </p>
+          <div class="lock">
+            <img src="{% static 'img/basil_lock-solid.svg' %}" alt="lock icon" />
+          </div>
+          <div class="access-options">
+            <div>
+              <p>
+                Login as member to continue reading this journal for free.
+              </p>
+              <a href="login.html" class="login">
+                MEMBER LOGIN
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div>
+              <p>
+                Not a member? Get access to this journal for $140 lifetime
+                access.
+              </p>
+              <a href="paymentgateway.html" class="login">
+                MAKE PAYMENT
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+
+        <div class="abstract-footer">
+          <div class="type-of-access">
+            <img src="{% static 'img/Vector.svg' %}" alt="access icon" />
+            <p>Share this journal</p>
+          </div>
+          <div class="type-of-access">
+            <img src="{% static 'img/evaDownloadFill0.svg' %}" alt="access icon" />
+            <p>Download PDF</p>
+          </div>
+          <div class="type-of-access">
+            <img src="{% static 'img/solar_copy-linear.svg' %}" alt="access icon" />
+            <p>Copy this journal link</p>
+          </div>
+        </div>
+        <div class="publisher-copyright">
+          <p>© 2023 Published by AHII Ltd on behalf of Dr. Mary Okoye</p>
+        </div>
+      </div>
+
+      <div class="authors">
+        <div class="author">
+          <h6>Other authors</h6>
+          <div class="other-authors">
+            <div class="author-1">
+              <img src="{% static 'img/author1.png' %}" alt="Author Picture" />
+              <a href="#">
+                <div>
+                  <p>Dr. Eleanor Pena</p>
+                  <img src="{% static 'img/Frame.svg' %}" alt="anchor icon" />
+                </div>
+              </a>
+            </div>
+            <div class="author-2">
+              <img src="{% static 'img/author2.png' %}" alt="Author Picture" />
+              <a href="#">
+                <div>
+                  <p>Dr. Annette Black</p>
+                  <img src="{% static 'img/Frame.svg' %}" alt="anchor icon" />
+                </div>
+              </a>
+            </div>
+            <div class="author-3">
+              <img src="{% static 'img/author3.png' %}" alt="Author Picture" />
+              <a href="#">
+                <div>
+                  <p>Prof. Arlene McCoy</p>
+                  <img src="{% static 'img/Frame.svg' %}" alt="anchor icon" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          <div class="special-note">
+            <h6>Special Note about this journal</h6>
+            <span></span>
+          </div>
+          <p>
+            DREEM stands for Dundee Ready Education Environment Measure is an
+            internationally accepted checklist for assessment of educational
+            status in medical schools.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="banner single-banner">
+      <p>Have your own journal you will like to publish through AHII?</p>
+      <a href="{% url 'journal:add_journal' %}" class="login">
+        Publish Your Journal
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+            fill="white"
+          />
+        </svg>
+      </a>
+    </section>
+  </main>
+
+  {% include "base/partials/push_modal_container.html" %}
+
+  {% include "base/partials/footer.html" %}
+
+  {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+  <script src="{% static "js/user.js" %}"></script>
+</body>
+
+{% endblock content %}

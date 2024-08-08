@@ -1,0 +1,67 @@
+{% load static %}
+<div class="publish-modal-container">
+  <div class="modal-content">
+    <div class="modal-title">
+      <p>What do you want to publish?</p>
+      <img
+        src="{% static 'img/basil_cancel-outline.svg' %}"
+        alt="close icon "
+        class="modal-close"
+      />
+    </div>
+    <div class="modal-body" id="modal--body">
+      <div class="publish-journal">
+        <div class="publish-journal-1">
+          <img src="{% static 'img/Vector.svg' %}" alt="arrow icon" />
+        </div>
+        <div class="publish-journal-2">
+          <h6 id="journal">Publish journal</h6>
+          <p>Submit your existing or new health related journal.</p>
+        </div>
+      </div>
+      <div class="publish-journal">
+        <div class="publish-journal-1">
+          <img src="{% static 'img/Vector.svg' %}" alt="arrow icon" />
+        </div>
+        <div class="publish-journal-2">
+          <h6 id="article">Publish article</h6>
+          <p>Submit your existing or new health related article.</p>
+        </div>
+      </div>
+      <div class="publish-journal">
+        <div class="publish-journal-1">
+          <img src="{% static 'img/Vector.svg' %}" alt="arrow icon" />
+        </div>
+        <div class="publish-journal-2">
+          <h6 id="event">Publish event</h6>
+          <p>Submit your existing or new health related events.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-button">
+      <button id="modal--btn">
+        <span>PROCEED</span>
+        <img src="{% static 'img/Frame (1).svg' %}" alt="arrow icon" />
+      </button>
+    </div>
+  </div>
+  <div class="upgrade-plan-modal-content">
+    <div class="modal-title">
+      <img
+        src="{% static 'img/basil_cancel-outline.svg' %}"
+        alt="close icon "
+        class="modal-close"
+      />
+    </div>
+    <div class="modal-body">
+      <img src="{% static 'img/logo.svg' %}" alt="AHII logo" />
+      <p>Oh no, you need to become associate member to publish an article</p>
+    </div>
+    <div class="modal-button">
+      <button>
+        <span>UPGRADE MEMBERSHIP</span>
+        <img src="{% static 'img/Frame (1).svg' %}" alt="arrow icon" />
+      </button>
+    </div>
+  </div>
+</div>

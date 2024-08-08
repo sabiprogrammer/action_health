@@ -1,0 +1,131 @@
+{% extends 'account/base.html' %} 
+{% load static %}
+{% block page_title %}Write Article{% endblock page_title %}
+
+{% block extra_css %}
+    <link rel="stylesheet"  type="text/css" href="{% static "css/user.css" %}" />
+{% endblock extra_css %}
+
+{% block content %}
+<body id="addNewArticle">
+    {% include "account/partials/navbar.html" %}
+
+    <main>
+        <section class="new-journal">
+  
+          <div class="new-journal-heading">
+              <h1>Add New Article</h1>
+          </div>
+          
+
+          {% if form.errors %}
+            {% for field in form %}
+
+              {% for error in field.errors %}
+                  <div class="creation-successful login-fail">
+                    <div class="success">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <g clip-path="url(#clip0_430_1884)">
+                          <path
+                            d="M18 16C18 16.5304 17.7893 17.0391 17.4142 17.4142C17.0391 17.7893 16.5304 18 16 18H2C1.46957 18 0.960859 17.7893 0.585786 17.4142C0.210714 17.0391 0 16.5304 0 16V2C0 1.46957 0.210714 0.960859 0.585786 0.585786C0.960859 0.210714 1.46957 0 2 0L16 0C16.5304 0 17.0391 0.210714 17.4142 0.585786C17.7893 0.960859 18 1.46957 18 2V16Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M14.64 3.18107C14.3619 3.00086 14.0236 2.9384 13.6994 3.00739C13.3752 3.07639 13.0917 3.2712 12.911 3.54907L7.46801 11.9386L4.95351 9.61356C4.83346 9.49954 4.69196 9.41051 4.53722 9.35162C4.38248 9.29274 4.21758 9.26519 4.0521 9.27056C3.88662 9.27593 3.72385 9.31413 3.57326 9.38293C3.42266 9.45172 3.28723 9.54975 3.17483 9.67132C3.06244 9.79289 2.97531 9.93558 2.91851 10.0911C2.86172 10.2466 2.83638 10.4119 2.84398 10.5773C2.85158 10.7427 2.89196 10.9049 2.96278 11.0546C3.0336 11.2042 3.13344 11.3383 3.25651 11.4491L6.86101 14.7821C7.10101 15.0046 7.40601 15.1146 7.70901 15.1146C8.04551 15.1146 8.47601 14.9736 8.75851 14.5451C8.92451 14.2921 15.0085 4.91007 15.0085 4.91007C15.0978 4.77234 15.1592 4.61837 15.189 4.45695C15.2188 4.29552 15.2166 4.1298 15.1824 3.96924C15.1482 3.80869 15.0826 3.65645 14.9896 3.52121C14.8965 3.38597 14.7777 3.27039 14.64 3.18107Z"
+                            fill="#1A1A1A"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_430_1884">
+                            <rect width="18" height="18" rx="9" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <h4>Error</h4>
+                    </div>
+                    <p>{{field.label}}: {{ error|escape }}</p>
+                  </div>
+              {% endfor %}
+            {% endfor %}
+          {% endif %}
+
+
+         <div class="new-article-container">
+           <form method="post" id="articleForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="new-journal-fields">
+              <label for="new-journal-title">Post title</label>
+              {{ form.title }}
+            </div>
+            <div class="new-journal-subtitle">
+              <label for="new-journal-subtitle">Subtitle</label><br>
+              {{ form.sub_title }}
+            </div>
+            <div>
+              <label>Article body</label><br>
+              <div>
+                {{ form.body }}
+              </div>
+            </div>
+           
+            <div class="journal-field">
+              <div class="journal-type">
+                <label for="journal-field">Field</label><br>
+                {{ form.field }}
+              </div>
+            </div>
+  
+             <div class="profile-picture">
+                  <div class="remove-image">
+                  <img src="{% static 'img/basil_cancel-solid.svg' %}" alt="remove image">
+
+              </div>
+  
+              <div class="add-image-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12H12M12 12H18M12 12V6M12 12V18" stroke="#01BFBF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  
+              <p>Upload</p>
+              <p>Featured Image</p>
+              </div>
+              <div class="add-image">
+                  {{ form.picture }}
+              </div>
+          </div>
+           
+              <div class="submit-options">
+                <button id="publish" type="submit">
+                  <p>Publish</p>
+                    <img src="{% static 'img/Frame (1).svg' %}" alt="arrow icon">
+                </button>
+                <a id="draft" type="button" href="#">
+                  <img src="{% static 'img/fluent_drafts-24-regular.svg' %}" alt="draft icon">
+                  <span>Save to draft</span>
+                </a>
+                <button id="delete"  type="button">
+                  <img src="{% static 'img/icon-park-outline_delete-one.svg' %}" alt="delete icon">
+                  <span>Delete</span>
+                </button>
+              </div>
+          </form>
+         </div>
+        </section>
+    </main>
+    {% include "base/partials/push_modal_container.html" %}
+
+    {% include "base/partials/backtotop.html" %}
+
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"></script> {% endcomment %}
+
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/user.js" %}"></script>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,234 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block page_title %}Honorees{% endblock page_title %} 
+
+{% block content %}
+<body id="honorees">
+
+  {% include "base/partials/navbar.html" %}
+
+  <main>
+      <h1>Exclusive Awards & Recognitions Powered by AHII</h1>
+      <section class="honorees-header">
+        <div class="honorees-intro">
+          <div class="award-bottom">
+            <div class="award-bottom-image">
+              <img src="{% static "img/image 10.png" %}" alt="award logo" />
+              <img src="{% static "img/image 11.png" %}" alt="award logo" />
+            </div>
+            <div class="bottom-info">
+              <h3>Why we honour specialists</h3>
+              <p>
+                AHII Awards and Recognitions are in honour of excellence
+                contribution to Public Health sector and AHII Community
+                generally. It is important to mention that all the awards and
+                recognitions are based exclusively on meritocracy. No one can
+                buy or manipulate an anything.
+              </p>
+              <a href="#">
+                <span>Learn how we award</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M6.00055 5.25C6.00055 5.05109 6.07957 4.86032 6.22022 4.71967C6.36087 4.57902 6.55164 4.5 6.75055 4.5H12.7505C12.9495 4.5 13.1402 4.57902 13.2809 4.71967C13.4215 4.86032 13.5005 5.05109 13.5005 5.25V11.25C13.5005 11.4489 13.4215 11.6397 13.2809 11.7803C13.1402 11.921 12.9495 12 12.7505 12C12.5516 12 12.3609 11.921 12.2202 11.7803C12.0796 11.6397 12.0005 11.4489 12.0005 11.25V7.0605L5.7808 13.2803C5.63935 13.4169 5.4499 13.4925 5.25325 13.4908C5.0566 13.489 4.86849 13.4102 4.72944 13.2711C4.59038 13.1321 4.5115 12.9439 4.50979 12.7473C4.50809 12.5507 4.58368 12.3612 4.7203 12.2197L10.9401 6H6.75055C6.55164 6 6.36087 5.92098 6.22022 5.78033C6.07957 5.63968 6.00055 5.44891 6.00055 5.25Z"
+                    fill="#1A1A1A"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+  
+          <div class="award-image">
+            <div class="backdrop"></div>
+            <div class="backdrop-detail">
+              <span></span>
+              <p>
+                "Being a part of AHGII has been a game-changer for me. Have
+                gotten a lot of research collaboration through my contributions
+                & publications including awards that shows my expertise.”
+              </p>
+              <div class="single-backdrop-image">
+                <div>
+                  <h5>Cameron Williamson</h5>
+                  <p>PH Nutritionist</p>
+                </div>
+                <div class="awardee-pictute">
+                  <img src="{% static "img/awardee13.png" %}" alt="Awardee picture" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="award-information">
+        <div class="award-contain">
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 11.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Research Pioneer Recognition</h5>
+              <p>
+                Celebrated individuals who have made groundbreaking
+                contributions to the public health sector through their
+                research.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 11.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Publication Excellence Award</h5>
+              <p>
+                This award is given annually and quarterly to honor individuals
+                who publish high-quality journals and research papers.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 10.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Community Engagement Recognition</h5>
+              <p>
+                Recognize those who actively engage with and contribute to your
+                AHII Community website. This could include regular blog posts,
+              </p>
+            </div>
+          </div>
+  
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 10.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Lifetime Achievement Recognition</h5>
+              <p>
+                This prestigious award is for individuals to acknowledges their
+                lifetime dedication and contributions to public health research
+                and literature.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 10.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Emerging Researcher Recognition</h5>
+              <p>
+                Honor young and promising researchers to encourage and support
+                emerging talent in the field who have made significant strides
+                in their career.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 11.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Collaboration Excellence Award</h5>
+              <p>
+                Acknowledge individuals who have demonstrated exceptional
+                collaboration that lead to significant advancements in public
+                health.
+              </p>
+            </div>
+          </div>
+  
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static 'img/image 11.png' %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Innovation in Public Health Award</h5>
+              <p>
+                Recognize innovators who have introduced creative and effective
+                solutions to public health challenges, improving the lives of
+                communities.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static "img/image 10.png" %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Patient Advocacy Recognition</h5>
+              <p>
+                Celebrate individuals who have made outstanding contributions to
+                advocating for patients' rights, healthcare access.
+              </p>
+            </div>
+          </div>
+          <div class="award-info-container">
+            <div class="award-icon">
+              <img src="{% static 'img/image 11.png' %}" alt="award icon" />
+            </div>
+            <div class="award-type-details">
+              <h5>Mentorship and Education Award</h5>
+              <p>
+                Acknowledge those who have dedicated themselves to mentoring the
+                next generation of public health professionals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="award-types">
+        <div class="award-bottom">
+          <div class="award-bottom-image">
+            <img src="{% static 'img/image 10.png' %}" alt="award logo" />
+            <img src="{% static 'img/image 11.png' %}" alt="award logo" />
+          </div>
+          <div class="bottom-info">
+            <p>
+              Awarded for excellence, hard work and positive feedback. Every
+              awards and recognitions are distinguished by excellent performance
+              in public health.
+            </p>
+            <p>
+              Impressed with others' results and want to be awarded or
+              recognized by AHII? Please refer to this guideline.
+            </p>
+            <a href="awards.html">
+              <span>Here is how to get our award & Recognisions</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+              >
+                <path
+                  d="M6.00055 5.25C6.00055 5.05109 6.07957 4.86032 6.22022 4.71967C6.36087 4.57902 6.55164 4.5 6.75055 4.5H12.7505C12.9495 4.5 13.1402 4.57902 13.2809 4.71967C13.4215 4.86032 13.5005 5.05109 13.5005 5.25V11.25C13.5005 11.4489 13.4215 11.6397 13.2809 11.7803C13.1402 11.921 12.9495 12 12.7505 12C12.5516 12 12.3609 11.921 12.2202 11.7803C12.0796 11.6397 12.0005 11.4489 12.0005 11.25V7.0605L5.7808 13.2803C5.63935 13.4169 5.4499 13.4925 5.25325 13.4908C5.0566 13.489 4.86849 13.4102 4.72944 13.2711C4.59038 13.1321 4.5115 12.9439 4.50979 12.7473C4.50809 12.5507 4.58368 12.3612 4.7203 12.2197L10.9401 6H6.75055C6.55164 6 6.36087 5.92098 6.22022 5.78033C6.07957 5.63968 6.00055 5.44891 6.00055 5.25Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  {% include "base/partials/push_modal_container.html" %}
+
+  {% include "base/partials/footer.html" %}
+  
+  {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+</body>
+
+{% endblock content %}

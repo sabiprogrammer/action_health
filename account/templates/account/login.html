@@ -1,0 +1,80 @@
+{% extends 'account/base.html' %} 
+{% load static %} 
+{% block page_title %}Login{% endblock page_title %} 
+
+{% block content %}
+<body class="login-page">
+    {% include "account/partials/navbar.html" %}
+    <section id="login-home">
+      <div class="login-form">
+        <h3>Log into your account</h3>
+
+        {% include 'base/partials/flash_messages.html' %}
+        
+        <form action="#" method="post">
+          {% csrf_token %}
+          <label for="email">Your Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            inputmode="email"
+          />
+
+          <label for="password">Your Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div class="password-reset">
+            <a href="#">I forgot my password</a>
+          </div>
+          <button type="submit" class="login">
+            LOGIN AS MEMBER
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </form>
+        <div class="create-account">
+          <p>Not an AHII member yet?</p>
+          <a href="{% url 'account:register' %}">
+            Register here
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="login-img"></div>
+    </section>
+
+  {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+</body>
+
+{% endblock content %}

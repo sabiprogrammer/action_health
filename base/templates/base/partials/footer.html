@@ -1,0 +1,93 @@
+{% load static %}
+
+<footer>
+    <section class="footer-head">
+      <div class="logo">
+        <img src="{% static 'img/logo.svg' %}" alt="logo" />
+      </div>
+      <p>Hub for public health enthusiasts.</p>
+    </section>
+
+    <section class="footer-nav">
+      <div class="footer-links">
+        <div class="organization">
+          <h6>Organization</h6>
+          <nav>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="{% url 'base:trainings' %}">Training</a></li>
+              <li><a href="{% url 'base:events' %}">Events</a></li>
+              <li><a href="{% url 'journal:all_journals' %}">Journals</a></li>
+              <li><a href="{% url 'article:all_articles' %}">Articles</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="qualifications">
+          <h6>Qualifications</h6>
+          <nav>
+            <ul>
+              <li><a href="{% url 'account:register' %}">Become Student Member</a></li>
+              <li><a href="{% url 'account:register' %}">Become Member</a></li>
+              <li><a href="{% url 'account:register' %}">Become Fellow</a></li>
+              <li><a href="{% url 'account:register' %}">Become Associate</a></li>
+              <li><a href="{% url 'account:login_page' %}">Member Account</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="legal-policy">
+          <h6>Legal Policy</h6>
+          <nav>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Code Of Conducts</a></li>
+              <li><a href="#">Licenses</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="cta">
+        <article>
+          <h3>Subscribe to our newsletter</h3>
+
+          <div class="get-started">
+            <input type="email" placeholder="Email" />
+            <a href="#" class="login">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </div>
+          <p>
+            Don't miss out on the latest news and advancements in public
+            health!
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="copyright">
+      <p>
+        By continuing past this page, you agree to our Terms of Service,
+        Cookie Policy, Privacy Policy and Content Policies. All trademarks are
+        properties of their respective owners
+      </p>
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+
+        - AHII Public Health. All rights reserved.
+      </p>
+    </section>
+</footer>

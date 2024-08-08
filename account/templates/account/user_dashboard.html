@@ -1,0 +1,807 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% block page_title %}{{ request.user.user_profile.full_name }}'s Profile {% endblock page_title %}
+{% block extra_css %}
+    <link rel="stylesheet"  type="text/css" href="{% static "css/user.css" %}" />
+{% endblock extra_css %}
+{% block content %}
+<body id="user-dashboard">
+    {% include "account/partials/navbar.html" %}
+    
+    <main id="single-journal" class="user-page dashboard">
+
+        {% include "base/partials/flash_messages.html" %}
+        
+        <section class="user-heading">
+            <div class="journal-publisher">
+                <div class="publisher-img">
+                    <img src="{% static 'img/pubimg1.png' %}" alt="logo" />
+                </div>
+                <div class="user-head">
+                    <div class="publisher-details">
+                        <div>
+                            <a href="#">
+                                {{ request.user.user_profile.professional_prefix}}. 
+                                {{ request.user.user_profile.full_name}}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                                    fill="none">
+                                    <path
+                                        d="M7.99992 7.5C7.99992 7.23478 8.10528 6.98043 8.29281 6.79289C8.48035 6.60536 8.7347 6.5 8.99992 6.5H16.9999C17.2651 6.5 17.5195 6.60536 17.707 6.79289C17.8946 6.98043 17.9999 7.23478 17.9999 7.5V15.5C17.9999 15.7652 17.8946 16.0196 17.707 16.2071C17.5195 16.3946 17.2651 16.5 16.9999 16.5C16.7347 16.5 16.4803 16.3946 16.2928 16.2071C16.1053 16.0196 15.9999 15.7652 15.9999 15.5V9.914L7.70692 18.207C7.51832 18.3892 7.26571 18.49 7.00352 18.4877C6.74132 18.4854 6.49051 18.3802 6.3051 18.1948C6.11969 18.0094 6.01452 17.7586 6.01224 17.4964C6.00997 17.2342 6.11076 16.9816 6.29292 16.793L14.5859 8.5H8.99992C8.7347 8.5 8.48035 8.39464 8.29281 8.20711C8.10528 8.01957 7.99992 7.76522 7.99992 7.5Z"
+                                        fill="#1A1A1A" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="publisher-plan">
+                        <p>Public Health Specialist at St. Luke Hospital Ghana</p>
+                        <div class="membertype">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awards-recognition">
+                <div class="dashboard-card-1">
+                    <div class="card-head">
+                        <div>
+                            <img src="{% static 'img/logo1.png' %}" alt="AHII logo">
+                            <p>AHII</p>
+                        </div>
+                        <p>{{ request.user.user_profile.membership_level | title}} Member</p>
+                    </div>
+                    <div class="card-name">
+                        <h3>Dr. {{ request.user.user_profile.full_name}}</h3>
+                        <p>Public Health Specialist</p>
+                    </div>
+                    <p class="membership-number">LN4567</p>
+                </div>
+                <div class="dashboard-card-2">
+                    <span></span>
+                </div>
+            </div>
+        </section>
+    
+        <div class="sort-journal">
+            <div class="sort-options">
+                <div class="sort-active sort-option profile-btn">
+                    <p>Profile</p>
+                </div>
+                <div class="sort-option">
+                    <p>Published Journals</p>
+                </div>
+                <div class="sort-option">
+                    <p>Published Articles</p>
+                </div>
+                <div class="sort-option">
+                    <p>Hosted Events</p>
+                </div>
+                <div class="sort-option">
+                    <p>Courses</p>
+                </div>
+                <div class="sort-option">
+                    <p>Bookmarked</p>
+                </div>
+                <div class="sort-option">
+                    <p>Membership</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-sections">
+            <section class="profile profile-honours">
+                <div class="user-info">
+                    <div class="user-info-detail">
+                        <p class="member-date">Member since {{ request.user.user_profile.date_created|date:"jS F Y" }}</p>
+                        <h3>
+                            <span></span>
+                            About 
+                            {{ request.user.user_profile.professional_prefix}}.
+                            {{ request.user.user_profile.full_name}}
+                        </h3>
+                        <p>
+                            The course "Understanding Clinical Research: Behind the Statistics" provides a comprehensive
+                            insight into the world of clinical research, focusing on the critical aspect of interpreting
+                            and
+                            comprehending statistical data.
+                            <br><br>
+                            This course is designed to equip students, researchers, and healthcare professionals with
+                            the
+                            necessary skills to decipher the significance of statistical analyses in clinical studies.
+                            <br><br>
+                            Participants will learn about fundamental statistical concepts, research methodologies, and
+                            the
+                            proper interpretation of data outcomes.
+                            <br><br>
+                            By delving into real-world case studies, the course aims to bridge the gap between complex
+                            statistical results and their practical implications in the context of medical and
+                            healthcare
+                            advancements.
+                            <br><br>
+                            Whether you're a novice or possess some prior knowledge of statistics, this course offers a
+                            valuable foundation for critically evaluating clinical research and making informed
+                            decisions
+                            based on empirical evidence.
+                        </p>
+                        <div class="user-social-media">
+                            <a href="#">
+                                <img src="{% static 'img/twitter.svg' %}" alt="Twitter icon">
+                            </a>
+                            <a href="#">
+                                <img src="{% static 'img/circum_linkedin.svg' %}" alt="LinkedIn icon">
+                            </a>
+                            <a href="#">
+                                <img src="{% static 'img/evaFacebookFill0.svg' %}" alt="Facebook icon">
+                            </a>
+                        </div>
+    
+                        <a href="#" class="edit-profile">
+                            <p>Edit profile</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M11.4055 15.732L8.3665 12.693C8.9095 11.737 9.7015 10.79 10.7415 9.85499C12.0825 8.64699 14.4495 6.60499 17.8415 3.72899C18.1852 3.43749 18.6259 3.28591 19.0761 3.30436C19.5264 3.32282 19.9532 3.50995 20.2719 3.8286C20.5905 4.14725 20.7777 4.5741 20.7961 5.02435C20.8146 5.47461 20.663 5.91534 20.3715 6.25899C17.4915 9.65699 15.4505 12.024 14.2465 13.359C13.3115 14.396 12.3645 15.187 11.4055 15.732ZM6.9895 14.146L9.9545 17.11L8.5885 19.016L3.3125 20.811L5.0835 15.511L6.9895 14.146Z"
+                                    fill="#1A1A1A" />
+                            </svg>
+                        </a>
+                    </div>
+    
+                    <div class="profile-edit hide">
+                        <article id="register-home" class="profile-edit-container">
+                            <div class="register-form setupprofile">
+                                <h3>Edit profile</h3>
+                                <form action="#" method="post" id="edit-form">
+                                    <div class="name-email">
+                                        <div class="name">
+                                            <label for="name">Your Full Name:</label>
+                                            <input
+                                            type="text"
+                                            id="name"
+                                            placeholder="Enter your full name"
+                                            required
+                                            />
+                                        </div>
+                                        <div class="email">
+                                            <label for="email">Your Email:</label>
+                                            <input
+                                            type="text"
+                                            id="email"
+                                            placeholder="Enter your email"
+                                            required
+                                            inputmode="email"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="profession-field">
+                                        <div class="profession">
+                                            <label for="profession">Your Profession Prefix:</label>
+                                            <input
+                                                type="text"
+                                                id="profession"
+                                                placeholder="E.g. Dr, Prof,etc"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="field">
+                                            <label for="field">Your Field:</label>
+                                            <input
+                                                type="text"
+                                                id="field"
+                                                placeholder="E.g. Nutritionist, Dental, etc"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="name-email">
+                                        <div class="name">
+                                        <label for="dateofbirth">Your Date of Birth:</label>
+                                        <input
+                                            type="text"
+                                            id="dateofbirth"
+                                            placeholder="E.g. DD/MM/YYYY"
+                                            required
+                                        />
+                                        </div>
+                                        <div class="email">
+                                            <label for="country">Select Your Country:</label>
+                                            <select name="country" id="country">
+                                                <option value="nigeria">Nigeria</option>
+                                            </select>
+                                            <span class="custom-dropdown-icon">
+                                                <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="18"
+                                                height="19"
+                                                viewBox="0 0 18 19"
+                                                fill="none"
+                                                >
+                                                <path
+                                                    d="M12.75 6.5C12.9489 6.5 13.1397 6.57902 13.2803 6.71967C13.421 6.86032 13.5 7.05109 13.5 7.25V13.25C13.5 13.4489 13.421 13.6397 13.2803 13.7803C13.1397 13.921 12.9489 14 12.75 14H6.75C6.55109 14 6.36032 13.921 6.21967 13.7803C6.07902 13.6397 6 13.4489 6 13.25C6 13.0511 6.07902 12.8603 6.21967 12.7197C6.36032 12.579 6.55109 12.5 6.75 12.5H10.9395L4.71975 6.28025C4.58313 6.1388 4.50753 5.94935 4.50924 5.7527C4.51095 5.55605 4.58983 5.36794 4.72889 5.22889C4.86794 5.08983 5.05605 5.01095 5.2527 5.00924C5.44935 5.00754 5.6388 5.08313 5.78025 5.21975L12 11.4395V7.25C12 7.05109 12.079 6.86032 12.2197 6.71967C12.3603 6.57902 12.5511 6.5 12.75 6.5Z"
+                                                    fill="#1A1A1A"
+                                                />
+                                                </svg>
+                                            </span>
+                                        </div>
+                            </div>
+                                    <div class="profession-field">
+                                        <div class="profession">
+                                            <label for="workplace">Your Workplace:</label>
+                                            <input
+                                                type="text"
+                                                id="workplace"
+                                                placeholder="Enter your workplace"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="field">
+                                            <label for="research">Link to past Research Library:</label>
+                                            <input
+                                                type="text"
+                                                id="research"
+                                                placeholder="Enter your research link"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="create-password">
+                                        <div class="set-password">
+                                            <label for="linkedinlink">Link to Your LinkedIn:</label>
+                                            <input
+                                                type="password"
+                                                id="linkedinlink"
+                                                placeholder="e.g. linkedin.com/username"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="confirm-password">
+                                            <label for="twitterlink">Link to Your Twitter:</label>
+                                            <input
+                                                type="password"
+                                                id="twitterlink"
+                                                placeholder="e.g. twitter.com/username"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    
+    
+                                    <div class="about-me">
+                                        <label for="about-me">About Me</label>
+                                        <textarea name="about-me" id="about-me"
+                                            placeholder="Let us know about you"></textarea>
+                                    </div>
+    
+                                    <div class="profile-picture">
+                                        <h3 id="profile-image">Profile Picture</h3>
+                                         <div class="remove-image">
+                                            <img src="{% static 'img/basil_cancel-solid.svg' %}" alt="remove image">
+                                        </div>
+                                        <div class="add-image-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                            viewBox="0 0 34 34" fill="none">
+                                            <path d="M8.5 17H17M17 17H25.5M17 17V8.5M17 17V25.5" stroke="#1A1A1A"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <p>Add Picture</p>
+                                        </div>
+                                        <div class="add-image">
+                                            <input type="file" accept="image/*" id="image-upload" />
+                                        </div>
+                                    </div>
+                                    <div class="create-password">
+                                        <div class="set-password">
+                                        <label for="createPassword">Set Password:</label>
+                                        <input
+                                            type="password"
+                                            id="createPassword"
+                                            placeholder="Enter your password"
+                                            required
+                                        />
+                                        </div>
+                                        <div class="confirm-password">
+                                        <label for="confirmPassword">Retype Password:</label>
+                                        <input
+                                            type="password"
+                                            id="confirmPassword"
+                                            placeholder="Retype your password"
+                                            required
+                                        />
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="create">
+                                        UPDATE PROFILE
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path
+                                                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                                                fill="white" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="publishedjournals">
+                <div>
+                    {% for journal in journals %}
+                    <article class="journal">
+                        <div class="journal-head-heading">
+                            <p>{{ journal.post_status | title}}</p>
+                            <a href="#">
+                                {% comment %} Edit {% endcomment %}
+                                <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon">
+                            </a>
+                        </div>
+                        <div class="journal-head">
+                            <span></span>
+                            <p>
+                                {% if journal.type %}
+                                    {{ journal.type | title}}
+                                {% else %}
+                                    {{ journal.field | title}}
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                <a href="{{ journal.get_absolute_url}}">
+                                    {{ journal.title | title}}
+                                </a>
+                            </h4>
+                            <div class="content">
+                                <p>
+                                    {{ journal.full_journal | truncatechars:250}}
+                                </p>
+                            </div>
+                          
+                        </div>
+                    </article>
+                    <div class="journal-line"></div>
+                    {% empty %}
+                        <h2>You have not published any journal yet.</h2>
+                    {% endfor %}
+                </div>
+            </section>
+    
+            <section class="publishedarticles">
+                <div class="journals">
+                    {% for article in articles %}
+                    <div class="article-head-heading">
+                        <p>{{ article.post_status | title}}</p>
+                        <a href="#">
+                            <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon"/ >
+                        </a>
+                    </div>
+                    <article class="journal">
+                        <div class="journal-left">
+                            <h4>
+                                <a href="{{ article.get_absolute_url }}">
+                                    {{ article.title | title}}
+                                </a>
+                            </h4>
+                            <h5>By 
+                                {{ article.user.user_profile.professional_prefix}}.
+                                {{ article.user.user_profile.full_name}}
+                            </h5>
+                            <div class="access-type">
+                                <div>
+                                    <span class="anatomy"></span>
+                                    <p>
+                                        {% if article.field %}
+                                            {{ article.field }}
+                                        {% else %}
+                                            No field specified by author
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            Created: {{ article.date_created|date:"jS F Y" }}
+                                            {% if not article.is_published %}
+                                                (Draft)
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="journal-right">
+                            {% if article.picture %}
+                                <img src="{{ article.get_image_url }}" alt="{{ article.title }}" />
+                            {% else %}
+                                <img src="{% static 'img/default_article_pic.png' %}" alt="{{ article.title }}" />
+                            {% endif %}
+                        </div>
+                    </article>
+
+                    {% empty %}
+                        <h2>You have not published any article yet</h2>
+                    {% endfor %}
+                </div>
+            </section>
+    
+            <section id="events" class="hostedevents">
+                {% for event in events %}
+                <div class="article-head-heading">
+                    <p>{{ event.post_status | title}}</p>
+                    <a href="#">
+                        <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon"/ >
+                    </a>
+                </div>
+                <article class="journal">
+                    <div class="event-img event-1">
+                        {% if event.picture %}
+                            <img src="{{ event.get_image_url }}" alt="{{ event.title }} Flyer" width='300' />
+                        {% else %}
+                            <img src="{% static 'img/default_article_pic.png' %}" alt="{{ event.title }} Flyer" width='250'/>
+                        {% endif %}
+                    </div>
+                    <div class="content">
+                        <h5>
+                            <a href="{{ event.get_absolute_url }}">
+                                {{ event.title | title }}
+                                by 
+                                {{ event.user.user_profile.professional_prefix | truncatechars:4 }}.
+                                {{ event.user.user_profile.full_name | truncatewords:2 }}
+                            </a>
+                        </h5>
+                        <p>
+                            {{ event.description | truncatechars:80 }}
+                        </p>
+                        <div class="access-type">
+                            <div>
+                                <img src="{% static 'img/solar_calendar-outline.svg' %}" alt="calendar icon" />
+                                <p>{{ event.date }}</p>
+                                <div>
+                                    <ul class="time">
+                                        <li>{{ event.time }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zoom">
+                            <img src="{% static 'img/ion_location-outline.svg' %}" alt="location icon" />
+                            <p>{{ event.venue | capfirst }}</p>
+                        </div>
+                    </div>
+                </article>
+                {% empty %}
+                <h2>You have not published any event yet.</h2>
+                {% endfor %}
+            </section>
+    
+            <section id="bookmark" class="bookmarked">     
+                <div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span></span>
+                            <p>Journal</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                               Epidemiological Study of a Foodborne Illness Outbreak: Unraveling the Source and Sp...
+                            </h4>
+                            <div class="content">
+                                <p>
+                                    Through case interviews, cohort studies, and environmental assessments, the study would aim to pinpoint the specific food source responsible for the outbreak.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="journal-line"></div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span class="anatomy"></span>
+                            <p>Article</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                Tuberculosis Outbreak Investigation: A Multidimensional
+                                Epidemiolo...
+                            </h4>
+                            <div class="content">
+                                <p>
+                                    This case study would focus on a localized tuberculosis outbreak
+                                    and conduct a comprehensive epidemiological investigation. It
+                                    would explore the factors ...
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span></span>
+                            <p>Event</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                Impact of School-Based Nutrition Intervention on Childhood Obesity: A Longit...
+                            </h4>
+                            <div class="content">
+                                <p>
+                                   This case study would focus on a specific school district that implemented a comprehensive nutrition intervention aimed at reducing childhood obesity rates.
+                                </p>
+                            </div>
+                            <div class="access-type">
+                               
+                                <div>
+                                    <ul>
+                                        <li>Researched Article</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="journal-line"></div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span></span>
+                            <p>Journal</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                Allocation of Limited COVID-19 Vaccines: An Ethical Dilemma in Public Health
+                            </h4>
+                            <div class="content">
+                                <p>
+                                    This case study would explore the ethical challenges faced by health authorities when distributing a limited supply of COVID-19 vaccines among different population grou ...
+                                </p>
+                            </div>
+                            <div class="access-type">
+                              
+                                <div>
+                                    <ul>
+                                        <li>Edited Article</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span></span>
+                            <p>Event</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                Epidemiological Study of a Foodborne Illness Outbreak: Unraveling the Source and Sp...
+                            </h4>
+                            <div class="content">
+                                <p>
+                                   Through case interviews, cohort studies, and environmental assessments, the study would aim to pinpoint the specific food source responsible for the outbreak.
+                                </p>
+                            </div>
+                            <div class="access-type">
+                              
+                                <div>
+                                    <ul>
+                                        <li>Researched Article</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="journal-line"></div>
+                    <article class="journal">
+                        <div class="journal-head">
+                            <span class="anatomy"></span>
+                            <p>Epidemiology</p>
+                        </div>
+                        <div class="journal-body">
+                            <h4>
+                                Tuberculosis Outbreak Investigation: A Multidimensional
+                                Epidemiolo...
+                            </h4>
+                            <div class="content">
+                                <p>
+                                    This case study would focus on a localized tuberculosis outbreak
+                                    and conduct a comprehensive epidemiological investigation. It
+                                    would explore the factors ...
+                                </p>
+                            </div>
+                            <div class="access-type">
+                                <div>
+                                    <ul>
+                                        <li>Edited Article</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div> 
+            </section>
+    
+            <div class="empty-bookmark">
+                <div class="empty-journal-img">
+                    <img src="{% static 'img/icon-gray.png' %}" alt="grayscale logo">
+                </div>
+                <p>No bookmark yet </p>
+            </div>
+            <section id="training-courses" class="courses">
+                <article class="journal">
+                  <div class="event-img event-1">
+                    <img src="{% static 'img/vid-thumb1.png' %}" alt="Video Thumbail" />
+                  </div>
+    
+                    <div class="content">
+                        <h5>Epidemiology Hackathon to be hosted by FARHealth ...</h5>
+                        <p class="training-level">Beginner Professional Course</p>
+                        <p>
+                        Organize an online hackathon focused on epidemiology and data
+                        analysis. Participants can form teams and work on real-world
+                        public
+                        </p>
+                        <div class="access-type">
+                        <div>
+                            <p>4.8 rating</p>
+                            <div class="rating">
+                            <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                            <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                            <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                            <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                            <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                            </div>
+                        </div>
+                        </div>
+                        <div class="enrol">
+                        <a href="#"> Enroll for training </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="journal">
+                  <div class="event-img event-1">
+                    <img src="{% static 'img/vid-thumb2.png' %}" alt="Video Thumbail" />
+                  </div>
+    
+                  <div class="content">
+                    <h5>Epidemiology Hackathon to be hosted by FARHealth ...</h5>
+                    <p class="training-level">Beginner Professional Course</p>
+                    <p>
+                      Organize an online hackathon focused on epidemiology and data
+                      analysis. Participants can form teams and work on real-world
+                      public
+                    </p>
+                    <div class="access-type">
+                      <div>
+                        <p>4.8 rating</p>
+                        <div class="rating">
+                          <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                          <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                          <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                          <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                          <img src="{% static 'img/ic_round-star.svg' %}" alt="rating icon" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="enrol">
+                      <a href="#"> Enroll for training </a>
+                    </div>
+                  </div>
+                </article>
+            </section>
+            
+            <div class="empty-courses">
+                <div class="empty-journal-img">
+                    <img src="{% static 'img/icon-gray.png' %}" alt="grayscale logo">
+                </div>
+                <p>No course yet </p>
+            </div>
+    
+            <div class="awards-recognition user-body">
+                <h6>All awards & recognition</h6>
+                <div class="name-of-award">
+                    <div class="name-of-award-logo">
+                        <img src="{% static 'img/image 10.png' %}" alt="award logo" />
+                    </div>
+                    <div class="name-of-award-info">
+                        <h6>Kikstart Grant awardee</h6>
+                        <p>Issue by Gretee Foundation - Jun. 2021</p>
+                    </div>
+                </div>
+                <div class="name-of-award">
+                    <div class="name-of-award-logo">
+                        <img src="{% static 'img/image 10.png' %}" alt="award logo" />
+                    </div>
+                    <div class="name-of-award-info">
+                        <h6>Kikstart Grant awardee</h6>
+                        <p>Issue by Gretee Foundation - Jun. 2021</p>
+                    </div>
+                </div>
+                <div class="name-of-award">
+                    <div class="name-of-award-logo">
+                        <img src="{% static 'img/image 10.png' %}" alt="award logo" />
+                    </div>
+                    <div class="name-of-award-info">
+                        <h6>Kikstart Grant awardee</h6>
+                        <p>Issue by Gretee Foundation - Jun. 2021</p>
+                    </div>
+                </div>
+                <div class="name-of-award">
+                    <div class="name-of-award-logo">
+                        <img src="{% static 'img/image 11.png' %}" alt="award logo" />
+                    </div>
+                    <div class="name-of-award-info">
+                        <h6>Kikstart Grant awardee</h6>
+                        <p>Issue by Gretee Foundation - Jun. 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-award">
+                <div class="empty-journal-img">
+                    <img src="{% static 'img/icon-gray.png' %}" alt="grayscale logo">
+                </div>
+                <p>No award and recognition won yet</p>
+            </div>
+            <section id="membership-details" class="membership">
+                <div class="membership-bill">
+                    <div class="membership-bill-table">
+                        <table>
+                            <thead>
+                                <tr class="table-head">
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Fee</th>
+                                    <th>Receipt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td>Oct. 21, 2023</td>
+                                    <td>Associate member</td>
+                                    <td>$450, 000</td>
+                                    <td><a href="#">Download</a></td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td>Oct. 21, 2023</td>
+                                    <td>Associate member</td>
+                                    <td>$450, 000</td>
+                                    <td><a href="#">Download</a></td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td>Oct. 21, 2023</td>
+                                    <td>Associate member</td>
+                                    <td>$450, 000</td>
+                                    <td><a href="#">Download</a></td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td>Oct. 21, 2023</td>
+                                    <td>Associate member</td>
+                                    <td>$450, 000</td>
+                                    <td><a href="#">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                    <div class="membership-bill-card">
+                        <div class="bill-details">
+                            <p>Your plan</p>
+                            <div>
+                                <h4>Associate Membership</h4>
+                                <p>Onboard on  24 Nov. 2020</p>
+                            </div>
+                            <div class="cancel-upgrade">
+                                <a href="#">Cancel membership</a>
+                                <a href="#">Upgrade</a>
+                            </div>
+                        </div>
+                        <div class="bill-details-2"></div>
+                    </div>
+            </section>
+        </div>
+    </main>
+    {% include "base/partials/push_modal_container.html" %}
+    {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+  <script src="{% static "js/user.js" %}"></script>
+</body>
+
+{% endblock content %}

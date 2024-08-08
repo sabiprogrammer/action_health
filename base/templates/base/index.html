@@ -1,0 +1,482 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block page_title %}Home{% endblock page_title %}
+{% block content %}
+
+<body class="homepage">
+
+  {% include "base/partials/navbar.html" %}
+
+  <main>
+      <section id="hero">
+        <div class="hero-text">
+          <h1>
+            A trusted and secure Public Health Professionals community with
+            instant access to resources
+          </h1>
+  
+          <div class="stats">
+            <div class="stats-details">
+              <div class="stats-info">
+                <p>1200+</p>
+                <p>Countries</p>
+              </div>
+              <div class="stats-info">
+                <p>900+</p>
+                <p>Members</p>
+              </div>
+              <div class="stats-info">
+                <p>650+</p>
+                <p>Journals</p>
+              </div>
+            </div>
+            <div class="stats-text">
+              <p>
+                Get started with the easiest and most useful platform to access
+                public health journals, courses, trainings & events.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="{% static "img/hero.svg" %}" alt="Hero Image" />
+        </div>
+      </section>
+  
+      <section class="cta">
+        <article>
+          <p>Ready to join other health professionals using AHII?</p>
+  
+          <h3>
+            As a new member, get free access to all journals, events, and
+            trainings.
+          </h3>
+  
+          <div class="get-started head">
+            <input type="email" placeholder="Enter your email address" />
+            <a href="#" class="login">
+              GET STARTED
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+  
+        <div class="about">
+          <div>
+            <h4>Who we are</h4>
+            <p>
+              AHII serves as a hub for public health experts, researchers, and
+              practitioners to connect, learn, and contribute to the field.
+            </p>
+          </div>
+          <div>
+            <h4>What makes us different</h4>
+            <p>
+              We are dedicated to advancing public health knowledge and
+              fostering professional development.
+            </p>
+          </div>
+        </div>
+      </section>
+  
+      <section id="journals">
+        <h2>
+          Explore our extensive collection of peer-reviewed journals, covering a
+          wide range of topics.
+        </h2>
+  
+        <div class="journals">
+          {% for journal in journals%}
+          <article class="journal">
+            <div class="journal-head">
+              <span></span>
+              <p>
+                {{ journal.field | title}}
+              </p>
+            </div>
+            <h4>
+              <a href="{{ journal.get_absolute_url }}">
+                {{ journal.title | title}}
+              </a>
+            </h4>
+            <div class="content">
+              <p>
+                {% if journal.sub_title %}
+                  {{ journal.sub_title | truncatechars:80}}
+                {% else %}
+                  {{ journal.abstract | truncatechars:80}}
+                {% endif %}
+              </p>
+            </div>
+            <h5>By {{ journal.user.user_profile.professional_prefix | title }}. {{ journal.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+            <div class="access-type">
+              <div>
+                <img src="{% static "img/open-access-icon.svg" %}" alt="Open access icon" />
+                <p>Open Access</p>
+              </div>
+              <div>
+                <ul>
+                  <li>Researched Article</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          {% empty %}
+          <h2>No journals published yet.</h2>
+          {% endfor %}
+        </div>
+  
+        <div class="more-journals">
+          <a href="{% url 'journal:all_journals' %}">
+            <div>ACCESS MORE JOURNALS</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="#000"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+  
+      <section id="events">
+        <h2>
+          Stay informed about upcoming informative conferences, and workshops
+          where you can learn.
+        </h2>
+  
+        <div class="event">
+          {% for event in events %}
+          <article class="journal">
+            <div class="event-img event-1">
+              {% if event.picture %}
+                  <img src="{{ event.get_image_url }}" alt="{{ event.title }} Flyer" width='200' />
+              {% else %}
+                <img src="{% static 'img/default_article_pic.png' %}" alt="{{ event.title }} Flyer" width='250'/>
+              {% endif %}
+            </div>
+  
+            <div class="content">
+              <h5>
+                <a href="{{ event.get_absolute_url }}">
+                  {{ event.title | title }}
+                  by 
+                  {{ event.user.user_profile.professional_prefix | truncatechars:4 }}.
+                  {{ event.user.user_profile.full_name | truncatewords:2 }}
+                </a>
+              </h5>
+              <p>
+                {{ event.description | truncatechars:80 }}
+              </p>
+              <div class="access-type">
+                <div>
+                  <img
+                    src="{% static 'img/solar_calendar-outline.svg' %}"
+                    alt="calendar icon"
+                  />
+                  <p>{{ event.date }}</p>
+                  <div>
+                    <ul class="time">
+                      <li>{{ event.time }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="zoom">
+                <img src="{% static 'img/ion_location-outline.svg' %}" alt="location icon" />
+                <p>{{ event.venue | capfirst }}</p>
+              </div>
+            </div>
+          </article>
+          {% empty %}
+          <h2>No events published yet.</h2>
+          {% endfor %}
+        </div>
+  
+        <div class="more-journals">
+          <a href="{% url 'event:all_events' %}">
+            <div>ACCESS MORE EVENTS</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                fill="#000"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+  
+      <div class="cta-container">
+        <section class="sub-cta1">
+          <div class="sub-cta-1">
+            <div class="rectangles">
+              <div class="rect-1"></div>
+              <div class="rect-2"></div>
+              <div class="rect-3"></div>
+              <div class="rect-4"></div>
+            </div>
+            <div class="cta-1">
+              <article>
+                <div class="cta-1-text">
+                  <h3>Have a journal or article to publish?</h3>
+                  <p>
+                    Publish all your research and insights on AHII to get read
+                    by worldwide audiences.
+                  </p>
+                  <a href="{% url 'account:login_page' %}" class="login">
+                    GET STARTED
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                        fill="#1a1a1a"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <div class="cta-1-img">
+                  <img
+                    src="{% static 'img/cta-1-img.png' %}"
+                    alt="Group of Health Teechnicians"
+                  />
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!-- 
+       <section class="sub-cta2">
+         <div class="sub-cta-2">
+           <div class="rectangles">
+             <div class="rect-1"></div>
+             <div class="rect-2"></div>
+             <div class="rect-3"></div>
+             <div class="rect-4"></div>
+             <div class="rect-5"></div>
+           </div>
+           <div class="cta-1">
+             <article>
+               <div class="cta-1-text">
+                 <h3>Still a student?</h3>
+                 <p>
+                   Upgrade your practice with our certification training
+                   program.
+                 </p>
+                 <a register.html class="login">
+                   GET STARTED
+                   <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                   >
+                     <path
+                       d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                       fill="#f5f5f5"
+                     />
+                   </svg>
+                 </a>
+               </div>
+               <div class="cta-1-img">
+                 <img src="./img/cta-2-img.png" alt="" />
+               </div>
+             </article>
+           </div>
+         </div>
+       </section>
+  
+       <section class="sub-cta3">
+         <div class="sub-cta-3">
+           <div class="rectangles">
+             <div class="rect-1"></div>
+             <div class="rect-2"></div>
+             <div class="rect-3"></div>
+             <div class="rect-4"></div>
+             <div class="rect-5"></div>
+           </div>
+           <div class="cta-1">
+             <article>
+               <div class="cta-1-text">
+                 <h3>Not a member of AHII at all??</h3>
+                 <p>
+                   Join today and gain access to exclusive resources available
+                   for Professionals.
+                 </p>
+                 <a href="register.html" class="login">
+                   BECOME A MEMBER
+                   <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                   >
+                     <path
+                       d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                       fill="#f5f5f5"
+                     />
+                   </svg>
+                 </a>
+               </div>
+               <div class="cta-1-img">
+                 <img
+                   src="./img/cta-3-img.png"
+                   alt="Picture of Health Technicians"
+                 />
+               </div>
+             </article>
+           </div>
+         </div>
+       </section> -->
+      </div>
+  
+      <section class="membership-benefits">
+        <div class="benefit-head">
+          <h4>
+            Exclusive benefits of being a member of African Public Health
+            international
+          </h4>
+        </div>
+  
+        <div class="benefit-details">
+          <div class="benefit">
+            <div class="content">
+              <p>1</p>
+              <div class="text">
+                <h5>Access to Premium Content</h5>
+                <p>
+                  As a member, you'll have privileged access to premium content
+                  from experts in-depth research articles.
+                </p>
+              </div>
+            </div>
+            <div class="content-img">
+              <img src="{% static 'img/bust-1.png' %}" alt="content-image" />
+            </div>
+          </div>
+          <div class="benefit">
+            <div class="content">
+              <p>2</p>
+              <div class="text">
+                <h5>Exclusive Events</h5>
+                <p>
+                  Enjoy exclusive discounts on event registrations, including
+                  conferences, webinars, and workshops.
+                </p>
+              </div>
+            </div>
+            <div class="content-img">
+              <img src="{% static 'img/bust-2.png' %}" alt="content-image" />
+            </div>
+          </div>
+          <div class="benefit">
+            <div class="content">
+              <p>3</p>
+              <div class="text">
+                <h5>Stay Informed and Inspired</h5>
+                <p>
+                  Stay at the forefront of public health knowledge and gain a
+                  competitive edge in your work.
+                </p>
+              </div>
+            </div>
+            <div class="content-img">
+              <img src="{% static 'img/bust-3.png' %}" alt="content-image" />
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section id="training">
+        <div class="testimonial">
+          <div class="quote">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="55"
+              height="56"
+              viewBox="0 0 55 56"
+              fill="none"
+            >
+              <path
+                d="M24.9304 10.581C18.1637 14.9123 14.7812 20.1321 14.7812 26.2337C14.7812 28.1329 15.1129 29.0816 15.7729 29.0816L16.4536 28.8977C16.9898 28.6915 17.4212 28.5884 17.7529 28.5884C19.69 28.5884 21.3107 29.293 22.6084 30.7024C23.9078 32.1118 24.5575 33.8477 24.5575 35.9205C24.5575 37.9091 23.8528 39.5987 22.452 40.9857C21.0495 42.3727 19.3582 43.0654 17.3782 43.0654C14.6145 43.0654 12.3337 41.931 10.5376 39.6571C8.74496 37.3884 7.84949 34.5352 7.84949 31.1029C7.84949 27.2185 8.60917 23.6658 10.1354 20.4415C11.6651 17.2188 13.9923 14.3055 17.1273 11.7016C20.2623 9.09944 22.2629 7.79663 23.1292 7.79663C23.7067 7.79663 24.1811 8.07507 24.5523 8.63194C24.9236 9.1871 25.1092 9.67179 25.1092 10.0843L24.9253 10.5793L24.9304 10.581ZM47.2054 10.581C40.4387 14.9123 37.0579 20.1304 37.0579 26.2354C37.0579 28.1346 37.3896 29.0833 38.0496 29.0833L38.7303 28.8994C39.2665 28.6932 39.6979 28.5901 40.0296 28.5901C41.9254 28.5901 43.5359 29.2948 44.8542 30.7041C46.1776 32.1135 46.8342 33.8494 46.8342 35.9223C46.8342 37.9109 46.1295 39.6004 44.7287 40.9874C43.3262 42.3744 41.635 43.0671 39.655 43.0671C36.8912 43.0671 34.6104 41.9327 32.8143 39.6588C31.0217 37.3901 30.1262 34.5369 30.1262 31.1046C30.1262 27.179 30.8962 23.5937 32.4465 20.3521C33.9934 17.1088 36.3223 14.2041 39.4367 11.6432C42.5562 9.08054 44.5448 7.79835 45.4093 7.79835C45.9886 7.79835 46.4629 8.07679 46.8359 8.63366C47.2054 9.19054 47.3911 9.67522 47.3911 10.0877L47.2054 10.581Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <div class="quote-text">
+            <p>
+              I've gained valuable insights and expanded my knowledge, which has
+              directly impacted my work in promoting community health.
+            </p>
+          </div>
+          <div class="quotee">
+            <p>John Okafor</p>
+            <p>Public Health Specialist</p>
+          </div>
+        </div>
+        <div class="testimonial-image"></div>
+      </section>
+  
+      <section class="banner">
+        <p>
+          Join us today and unlock a world of opportunities for professional
+          growth.
+        </p>
+        <a href="{% url 'account:register' %}" class="login">
+          Become Member
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </section>
+  </main>
+
+  {% include "base/partials/push_modal_container.html" %}
+
+  {% include "base/partials/footer.html" %}
+  
+  {% include "base/partials/backtotop.html" %}
+
+  <script src="{% static "js/app.js" %}"></script>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,266 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% block page_title %}{{event.title | title}}{% endblock page_title %}
+
+{% block content %}
+<body class="single-event">
+    {% include "base/partials/navbar.html" %}
+    
+    <main id="single-journal">
+      <div class="single-journal-head">
+        <div class="journal-title">
+          <div class="journals">
+            <article class="journal">
+              <h4>
+                {{ event.title | title }}
+              </h4>
+
+              <div class="reviewer">
+                <div>
+                  <div class="reviewer-image">
+                    <img src="{% static 'img/pubimg1.png' %}" alt="Picture of Author" />
+                  </div>
+                  <div class="reviewer-name">
+                    <p>
+                      {{ event.user.user_profile.professional_prefix}}.
+                      {{ event.user.user_profile.full_name}}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.33344 4.66667C5.33344 4.48986 5.40368 4.32029 5.5287 4.19526C5.65373 4.07024 5.8233 4 6.00011 4H11.3334C11.5103 4 11.6798 4.07024 11.8048 4.19526C11.9299 4.32029 12.0001 4.48986 12.0001 4.66667V10C12.0001 10.1768 11.9299 10.3464 11.8048 10.4714C11.6798 10.5964 11.5103 10.6667 11.3334 10.6667C11.1566 10.6667 10.9871 10.5964 10.862 10.4714C10.737 10.3464 10.6668 10.1768 10.6668 10V6.276L5.13811 11.8047C5.01237 11.9261 4.84397 11.9933 4.66917 11.9918C4.49438 11.9903 4.32717 11.9202 4.20356 11.7965C4.07996 11.6729 4.00984 11.5057 4.00833 11.3309C4.00681 11.1561 4.074 10.9877 4.19544 10.862L9.72411 5.33333H6.00011C5.8233 5.33333 5.65373 5.2631 5.5287 5.13807C5.40368 5.01305 5.33344 4.84348 5.33344 4.66667Z"
+                          fill="#1A1A1A"
+                        />
+                      </svg>
+                    </p>
+                    <p><strong>Posted:</strong> {{ event.date_created|date:"jS F Y" }}</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="single-article-content">
+              <div class="article-image-2">
+                {% if event.picture %}
+                  <img src="{{ event.get_image_url }}" alt="{{ event.title }} flyer" />
+                  {% else %}
+                  <img src="{% static 'img/default_article_pic.png' %}" alt="{{ event.title }} flyer" />
+                {% endif %}
+              </div>
+              <div class="open-access">
+                <h3><span></span>About this event</h3>
+              </div>
+
+              <p>
+                {{ event.description }}
+              </p>
+            </div>
+            <div class="open-access">
+              <h3><span></span>The Host or Inviter</h3>
+            </div>
+
+            <div id="host" class="journal-publisher">
+              <div class="publisher-img">
+                <img src="{% static 'img/pubimg1.png' %}" alt="logo" />
+              </div>
+              <div class="host-info">
+                <div class="publisher-details">
+                  <div>
+                    <a href="#">
+                      Dr. Mary Okafor
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none"
+                      >
+                        <path
+                          d="M7.99992 7.5C7.99992 7.23478 8.10528 6.98043 8.29281 6.79289C8.48035 6.60536 8.7347 6.5 8.99992 6.5H16.9999C17.2651 6.5 17.5195 6.60536 17.707 6.79289C17.8946 6.98043 17.9999 7.23478 17.9999 7.5V15.5C17.9999 15.7652 17.8946 16.0196 17.707 16.2071C17.5195 16.3946 17.2651 16.5 16.9999 16.5C16.7347 16.5 16.4803 16.3946 16.2928 16.2071C16.1053 16.0196 15.9999 15.7652 15.9999 15.5V9.914L7.70692 18.207C7.51832 18.3892 7.26571 18.49 7.00352 18.4877C6.74132 18.4854 6.49051 18.3802 6.3051 18.1948C6.11969 18.0094 6.01452 17.7586 6.01224 17.4964C6.00997 17.2342 6.11076 16.9816 6.29292 16.793L14.5859 8.5H8.99992C8.7347 8.5 8.48035 8.39464 8.29281 8.20711C8.10528 8.01957 7.99992 7.76522 7.99992 7.5Z"
+                          fill="#1A1A1A"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  <p>Public Health Specialist at St. Luke Hospital Ghana</p>
+                </div>
+                <div class="publisher-plan">
+                  <div class="membertype">
+                    <span></span>
+                    <div>
+                      <p>Associate Member</p>
+                      <img src="{% static 'img/logo1.png' %}" alt="logo" />
+                      <p>AHII</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="abstract-footer">
+              <div class="type-of-access">
+                <div>
+                  <img src="{% static 'img/Vector.svg' %}" alt="share icon" />
+                </div>
+                <p>Share this event</p>
+              </div>
+              <div class="type-of-access">
+                <div>
+                  <img src="{% static 'img/Group.svg' %}" alt="Bookmark icon" />
+                </div>
+                <p>Bookmark this event</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journal-publisher reserve">
+          <p class="event-head">Reserve your spot</p>
+          <div class="event-date">
+            <div class="access-type">
+              <div>
+                <img
+                  src="{% static 'img/solar_calendar-outline.svg' %}"
+                  alt="calendar icon"
+                />
+                <p>Date:</p>
+                <p class="day">{{ event.date }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="event-time">
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/uiw_time-o.svg' %}" alt="time icon" />
+                <p>Time:</p>
+                <p class="day">{{ event.time }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="event-venue">
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/ion_location-outline.svg' %}" alt="location icon" />
+                <p>Venue:</p>
+                <p class="day">{{ event.venue | capfirst }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="event-cost">
+            <div class="access-type">
+              <div>
+                <img src="{% static 'img/clarity_wallet-line.svg' %}" alt="wallet icon" />
+                <p>Fee:</p>
+                <p class="cost">
+                  {% if event.fee %}
+                    {{ event.fee }}
+                  {% else %}
+                    0
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="event-registration">
+            <div class="header-cta">
+              <a href="#" onclick="alert('feature coming soon...');" class="login">
+                <span>REGISTER FOR THIS EVENT</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="banner">
+        <p>
+          Have an upcoming event you are hosting or will love to invite others?
+        </p>
+        <a href="{% url 'event:add_event' %}" class="login">
+          Publish Your Event
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M7.99998 7C7.99998 6.73478 8.10534 6.48043 8.29287 6.29289C8.48041 6.10536 8.73476 6 8.99998 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8946 6.48043 18 6.73478 18 7V15C18 15.2652 17.8946 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1053 15.5196 16 15.2652 16 15V9.414L7.70698 17.707C7.51838 17.8892 7.26578 17.99 7.00358 17.9877C6.74138 17.9854 6.49057 17.8802 6.30516 17.6948C6.11975 17.5094 6.01458 17.2586 6.01231 16.9964C6.01003 16.7342 6.11082 16.4816 6.29298 16.293L14.586 8H8.99998C8.73476 8 8.48041 7.89464 8.29287 7.70711C8.10534 7.51957 7.99998 7.26522 7.99998 7Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </section>
+      <section id="events">
+        <h2>Explore other related events</h2>
+
+        <div class="event">
+          {% for event in related_events %}
+            <article class="journal">
+              <div class="event-img event-1">
+                {% if event.picture %}
+                  <img src="{{ event.get_image_url }}" alt="{{ event.title }} Flyer" width='300' />
+                {% else %}
+                  <img src="{% static 'img/default_article_pic.png' %}" alt="{{ event.title }} Flyer" width='250'/>
+                {% endif %}
+              </div>
+
+              <div class="content">
+                <h5>
+                  <a href="{{ event.get_absolute_url }}">
+                    {{ event.title | title }}
+                    by 
+                    {{ event.user.user_profile.professional_prefix | truncatechars:4 }}.
+                    {{ event.user.user_profile.full_name | truncatewords:2 }}
+                  </a>
+                </h5>
+                <p>
+                  {{ event.description | truncatechars:80 }}
+                </p>
+                <div class="access-type">
+                  <div>
+                    <img
+                      src="{% static 'img/solar_calendar-outline.svg' %}"
+                      alt="calendar icon"
+                    />
+                    <p>{{ event.date }}</p>
+                    <div>
+                      <ul class="time">
+                        <li>{{ event.time }}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="zoom">
+                  <img src="{% static 'img/ion_location-outline.svg' %}" alt="location icon" />
+                  <p>{{ event.venue | capfirst }}</p>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    {% include "base/partials/push_modal_container.html" %}
+
+    {% include "base/partials/footer.html" %}
+    
+    {% include "base/partials/backtotop.html" %}
+
+    <script src="{% static "js/app.js" %}"></script>
+</body>
+
+{% endblock content %}
