@@ -33,7 +33,7 @@
                                     <img src="{% static 'img/pubimg1.png' %}" alt="Picture of Author" />
                                 </div>
                                 <div class="reviewer-name">
-                                    <p>{{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title }}
+                                    <p>{{ article.user.user_profile.professional_prefix | title }} {{ article.user.user_profile.full_name | title }}
                                         <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="16"
@@ -180,7 +180,7 @@
                             </a>
                         </h4>
             
-                        <h5>By {{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+                        <h5>By {{ article.user.user_profile.professional_prefix | title }} {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
                         <div class="access-type">
                             <div>
                             <span class="anatomy"></span>
@@ -225,7 +225,7 @@
                             </a>
                         </h4>
             
-                        <h5>By {{ article.user.user_profile.professional_prefix | title }}. {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+                        <h5>By {{ article.user.user_profile.professional_prefix | title }} {{ article.user.user_profile.full_name | title | truncatewords:2 }}</h5>
                         <div class="access-type">
                             <div>
                             <span class="anatomy"></span>

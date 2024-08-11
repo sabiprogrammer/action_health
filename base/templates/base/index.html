@@ -120,7 +120,7 @@
                 {% endif %}
               </p>
             </div>
-            <h5>By {{ journal.user.user_profile.professional_prefix | title }}. {{ journal.user.user_profile.full_name | title | truncatewords:2 }}</h5>
+            <h5>By {{ journal.user.user_profile.professional_prefix | title }} {{ journal.user.user_profile.full_name | title | truncatewords:2 }}</h5>
             <div class="access-type">
               <div>
                 <img src="{% static "img/open-access-icon.svg" %}" alt="Open access icon" />
@@ -179,7 +179,7 @@
                 <a href="{{ event.get_absolute_url }}">
                   {{ event.title | title }}
                   by 
-                  {{ event.user.user_profile.professional_prefix | truncatechars:4 }}.
+                  {{ event.user.user_profile.professional_prefix | truncatechars:4 }}
                   {{ event.user.user_profile.full_name | truncatewords:2 }}
                 </a>
               </h5>

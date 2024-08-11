@@ -10,6 +10,7 @@
       <div class="single-journal-head">
         <div class="journal-title">
           <div class="journals">
+            {% include 'base/partials/flash_messages.html' %}
             <article class="journal">
               <h4>
                 {{ event.title | title }}
@@ -22,7 +23,7 @@
                   </div>
                   <div class="reviewer-name">
                     <p>
-                      {{ event.user.user_profile.professional_prefix}}.
+                      {{ event.user.user_profile.professional_prefix}}
                       {{ event.user.user_profile.full_name}}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +223,7 @@
                   <a href="{{ event.get_absolute_url }}">
                     {{ event.title | title }}
                     by 
-                    {{ event.user.user_profile.professional_prefix | truncatechars:4 }}.
+                    {{ event.user.user_profile.professional_prefix | truncatechars:4 }}
                     {{ event.user.user_profile.full_name | truncatewords:2 }}
                   </a>
                 </h5>
