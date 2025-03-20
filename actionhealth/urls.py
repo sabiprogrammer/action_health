@@ -7,7 +7,7 @@ urlpatterns = [
     path('', include('base.urls', namespace='base')),
     path('account/', include('account.urls', namespace='account')),
     path('article/', include('article.urls', namespace='article')),
-    path('articles/', include('article.urls', namespace='article')),
+    # path('articles/', include('article.urls', namespace='article')),
     path('journal/', include('journal.urls', namespace='journal')),
     path('event/', include('event.urls', namespace='event')),
     path('admin/', admin.site.urls),

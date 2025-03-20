@@ -159,10 +159,10 @@ header::before {
   width: 50rem;
   color: #000;
   font-family: "Lato", sans-serif;
-  font-size: 3.375rem;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 5rem;
+  line-height: 3.5rem;
 }
 
 .stats {

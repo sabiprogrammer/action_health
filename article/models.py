@@ -1,3 +1,4 @@
+import uuid
 from django.template.defaultfilters import slugify
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -19,6 +20,7 @@ class Article(models.Model):
     )
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_code = models.CharField(max_length=10, default=uuid.uuid4) 
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(unique=True)
     sub_title = models.CharField(max_length=255, blank=True, null=True)
