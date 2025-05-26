@@ -30,7 +30,11 @@
                             <p><strong>Published:</strong> {{ article.date_published|date:"jS F Y" }}</p>
                             <div>
                                 <div class="reviewer-image">
-                                    <img src="{% static 'img/pubimg1.png' %}" alt="Picture of Author" />
+                                  {% if article.user.user_profile.picture %}
+                                  <img src="{{article.user.user_profile.get_image_url}}" style="width:100%;" alt="Picture of Author" />
+                                  {% else %}
+                                  <img src="{% static 'img/logo.svg' %}" alt="Picture of Author - sample" />
+                                  {% endif %}
                                 </div>
                                 <div class="reviewer-name">
                                     <p>{{ article.user.user_profile.professional_prefix | title }} {{ article.user.user_profile.full_name | title }}
@@ -61,44 +65,11 @@
                       <p>
                         {{ article.body}}
                       </p>
-                      
+                      {% comment %}
                       <div class="open-access">
                           <h3><span></span>Common Causes of Student Stress</h3>
                       </div>
-  
-                      <p>
-                      Treatment efficacy for eating disorders (EDs) is modest and
-                      guidelines differ. We summarized findings/quality of (network)
-                      meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs.
-                      Systematic meta-review ((N)MA of RCTs, ED, active/inactive
-                      control), using (anorexia or bulimia or eating disorder) AND
-                      (meta-analy*)
-                      </p>
-                      <p>
-                      Antidepressants, stimulants outperformed placebo, despite lower
-                      acceptability, as did CBT-ED versus waitlist/no treatment.
-                      Family-based therapy is effective in AN and BN (adolescents).
-                      CBT-ED has the largest efficacy in BN (adults), followed by
-                      antidepressants, as well as psychotherapy in BED (mixed).
-                      Medications have short-term efficacy in BED (adults).
-                      </p>
-                      <p>
-                              Another study found that much of high school students' stress originates from school and activities, and that this chronic stress can persist into college years and lead to academic disengagement and mental health problems.
-                      </p>
-                      <div class="article-image-3">
-                          <img src="{% static 'img/image 7.png' %}" alt="Article Image">
-                      </div>
-  
-                      <div class="text-quote">
-                          <p>
-                              Treatment efficacy for eating disorders (EDs) is modest and guidelines differ. We summarized findings/quality of (network) meta-analyses (N)MA of randomized controlled trials (RCTs) in EDs. Systematic meta-review ((N)MA of RCTs, ED, active/inactive control), using (anorexia or bulimia or eating disorder) AND (meta-analy
-                          </p>
-                          <h4>Dr. Kelvin Makiania</h4>
-                      </div>
-                      <p>
-                          <strong>Related:</strong>
-                          <a href="https://www.verywellmind.com/top-school-stress-relievers-for-students-3145179" target="_blank">How Self Hypnosis Can Help You Manage Stress</a>
-                      </p>
+                      {% endcomment %}
                   </div> 
          
                   <div class="abstract-footer">

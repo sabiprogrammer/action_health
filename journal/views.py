@@ -38,3 +38,21 @@ def journal_detail(request, slug):
         'related_journals': related_journals,
     }
     return render(request, 'journal/journal_detail.html', context)
+
+@login_required
+def edit_journal(request, slug):
+    journal = get_object_or_404(Journal, slug=slug)
+    form = AddJournalForm(request.POST or None, instance=journal)
+    # form = AddJournalForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            journal = form.save(commit=False)
+
+            journal.user = request.user
+            # journal.is_edited = True
+            journal.save()
+
+            messages.success(request, 'journal edited sucessfully')
+            return redirect(reverse('journal:journal_detail', kwargs={'slug':journal.slug}))
+    context = {'form': form}
+    return render(request, 'journal/edit_journal.html', context)

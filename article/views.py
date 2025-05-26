@@ -38,3 +38,20 @@ def article_detail(request, slug):
         'related_articles': related_articles,
     }
     return render(request, 'article/article_detail.html', context)
+
+@login_required
+def edit_article(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    form = AddArticleForm(request.POST or None, instance=article)
+    if request.method == 'POST':
+        if form.is_valid():
+            article = form.save(commit=False)
+
+            article.user = request.user
+            # article.is_edited = True
+            article.save()
+
+            messages.success(request, 'article edited sucessfully')
+            return redirect(reverse('article:article_detail', kwargs={'slug':article.slug}))
+    context = {'form': form}
+    return render(request, 'article/edit_article.html', context)

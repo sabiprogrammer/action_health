@@ -37,3 +37,21 @@ def event_detail(request, slug):
         'related_events': related_events,
     }
     return render(request, 'event/event_detail.html', context)
+
+
+@login_required
+def edit_event(request, slug):
+    event = get_object_or_404(Event, slug=slug)
+    form = AddEventForm(request.POST or None, instance=event)
+    if request.method == 'POST':
+        if form.is_valid():
+            event = form.save(commit=False)
+
+            event.user = request.user
+            # event.is_edited = True
+            event.save()
+
+            messages.success(request, 'event edited sucessfully')
+            return redirect(reverse('event:event_detail', kwargs={'slug':event.slug}))
+    context = {'form': form}
+    return render(request, 'event/edit_event.html', context)

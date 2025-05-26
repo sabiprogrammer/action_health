@@ -165,11 +165,15 @@ class UserProfileRegisterForm(forms.ModelForm):
             raise forms.ValidationError("Professional prefix cannot be empty")
         return cleaned_data
     '''
-    
+
 class UserProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['full_name', 'gender', 'country', 'phone_number', 'picture']
+        fields = [
+            'full_name', 'gender', 'country', 'phone_number', 'picture', 
+            'date_of_birth', 'professional_prefix', 'field', 'workplace',
+            'linkedin_url', 'x_url', 'about_me',
+            ]
         widgets = {
             'full_name': forms.TextInput(attrs={
                 'id': 'fullname',

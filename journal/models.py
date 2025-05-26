@@ -26,6 +26,7 @@ class Journal(models.Model):
     contributor_id_number = models.CharField(max_length=255, blank=True, null=True)
     special_note = models.CharField(max_length=255, blank=True, null=True)
     is_published = models.BooleanField(default=False)
+    # is_edited = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_published = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)

@@ -15,7 +15,11 @@
         <section class="user-heading">
             <div class="journal-publisher">
                 <div class="publisher-img">
-                    <img src="{% static 'img/pubimg1.png' %}" alt="logo" />
+                    {% if user_profile.picture %}
+                        <img src="{{user_profile.get_image_url}}" alt="{{user_profile.full_name}}'s picture" />
+                    {% else %}
+                        <img src="{% static 'img/pubimg1.png' %}" alt="{{user_profile.full_name}}'s picture" />
+                    {% endif %}
                 </div>
                 <div class="user-head">
                     <div class="publisher-details">
@@ -33,7 +37,14 @@
                         </div>
                     </div>
                     <div class="publisher-plan">
-                        <p>Public Health Specialist at St. Luke Hospital Ghana</p>
+                        <p>
+                        {% if request.user.user_profile.field %}
+                            <span>{{request.user.user_profile.field | title}}</span>
+                        {% endif %}
+                        {% if request.user.user_profile.workplace %}
+                            <span>| {{request.user.user_profile.workplace}}</span>
+                        {% endif %}
+                        </p>
                         <div class="membertype">
                             <span></span>
                         </div>
@@ -50,8 +61,8 @@
                         <p>{{ request.user.user_profile.membership_level | title}} Member</p>
                     </div>
                     <div class="card-name">
-                        <h3>Dr. {{ request.user.user_profile.full_name}}</h3>
-                        <p>Public Health Specialist</p>
+                        <h3>{{ request.user.user_profile.professional_prefix}}. {{ request.user.user_profile.full_name}}</h3>
+                        <p>{{request.user.user_profile.field}}</p>
                     </div>
                     <p class="membership-number">LN4567</p>
                 </div>
@@ -99,34 +110,13 @@
                             {{ request.user.user_profile.full_name}}
                         </h3>
                         <p>
-                            The course "Understanding Clinical Research: Behind the Statistics" provides a comprehensive
-                            insight into the world of clinical research, focusing on the critical aspect of interpreting
-                            and
-                            comprehending statistical data.
-                            <br><br>
-                            This course is designed to equip students, researchers, and healthcare professionals with
-                            the
-                            necessary skills to decipher the significance of statistical analyses in clinical studies.
-                            <br><br>
-                            Participants will learn about fundamental statistical concepts, research methodologies, and
-                            the
-                            proper interpretation of data outcomes.
-                            <br><br>
-                            By delving into real-world case studies, the course aims to bridge the gap between complex
-                            statistical results and their practical implications in the context of medical and
-                            healthcare
-                            advancements.
-                            <br><br>
-                            Whether you're a novice or possess some prior knowledge of statistics, this course offers a
-                            valuable foundation for critically evaluating clinical research and making informed
-                            decisions
-                            based on empirical evidence.
+                            {{request.user.user_profile.about_me}}
                         </p>
                         <div class="user-social-media">
-                            <a href="#">
+                            <a {% if user_profile.x_url %} href="{{user_profile.x_url}}" target="_blank" {% else %} href="#" {% endif %}>
                                 <img src="{% static 'img/twitter.svg' %}" alt="Twitter icon">
                             </a>
-                            <a href="#">
+                            <a {% if user_profile.linkedin_url %} href="{{user_profile.linkedin_url}}" target="_blank" {% else %} href="#" {% endif %}>
                                 <img src="{% static 'img/circum_linkedin.svg' %}" alt="LinkedIn icon">
                             </a>
                             <a href="#">
@@ -149,25 +139,30 @@
                         <article id="register-home" class="profile-edit-container">
                             <div class="register-form setupprofile">
                                 <h3>Edit profile</h3>
-                                <form action="#" method="post" id="edit-form">
+                                <form action="#" method="post" id="edit-form" enctype="multipart/form-data">
+                                    {% csrf_token %}
                                     <div class="name-email">
                                         <div class="name">
                                             <label for="name">Your Full Name:</label>
                                             <input
                                             type="text"
+                                            name="full_name"
                                             id="name"
                                             placeholder="Enter your full name"
                                             required
+                                            value="{{request.user.user_profile.full_name}}"
                                             />
                                         </div>
                                         <div class="email">
                                             <label for="email">Your Email:</label>
                                             <input
-                                            type="text"
+                                            type="email"
+                                            name="email"
                                             id="email"
                                             placeholder="Enter your email"
                                             required
                                             inputmode="email"
+                                            value="{{request.user.email}}"
                                             />
                                         </div>
                                     </div>
@@ -177,17 +172,21 @@
                                             <input
                                                 type="text"
                                                 id="profession"
+                                                name="professional_prefix"
                                                 placeholder="E.g. Dr, Prof,etc"
                                                 required
+                                                value="{{request.user.user_profile.professional_prefix}}"
                                             />
                                         </div>
                                         <div class="field">
                                             <label for="field">Your Field:</label>
                                             <input
                                                 type="text"
+                                                name="field"
                                                 id="field"
                                                 placeholder="E.g. Nutritionist, Dental, etc"
                                                 required
+                                                value="{{request.user.user_profile.field}}"
                                             />
                                         </div>
                                     </div>
@@ -196,9 +195,11 @@
                                         <label for="dateofbirth">Your Date of Birth:</label>
                                         <input
                                             type="text"
+                                            name="date_of_birth"
                                             id="dateofbirth"
                                             placeholder="E.g. DD/MM/YYYY"
                                             required
+                                            value="{{request.user.user_profile.date_of_birth}}"
                                         />
                                         </div>
                                         <div class="email">
@@ -221,44 +222,65 @@
                                                 </svg>
                                             </span>
                                         </div>
+                                        
                             </div>
                                     <div class="profession-field">
                                         <div class="profession">
                                             <label for="workplace">Your Workplace:</label>
                                             <input
                                                 type="text"
+                                                name="workplace"
                                                 id="workplace"
                                                 placeholder="Enter your workplace"
                                                 required
+                                                value="{{request.user.user_profile.workplace}}"
                                             />
                                         </div>
-                                        <div class="field">
-                                            <label for="research">Link to past Research Library:</label>
-                                            <input
-                                                type="text"
-                                                id="research"
-                                                placeholder="Enter your research link"
-                                                required
-                                            />
+                                        <div class="email">
+                                            <label for="gender">Select Your Gender:</label>
+                                            <select 
+                                            name="gender" 
+                                            id="gender" 
+                                            style="width:100%;padding:1rem;border:1px solid #1a1a1a;color:var(--Heading-color, #1a1a1a);font-family:'Open Sans';font-size:0.875rem;border-radius:4px"
+                                            >
+                                                <option {% if user_profile.gender == 'male' %} selected {% endif %} value="male">Male</option>
+                                                <option {% if user_profile.gender == 'female' %} selected {% endif %} value="female">Female</option>
+                                            </select>
+                                            
                                         </div>
+                                        {% comment %} 
+                                            <div class="field">
+                                                <label for="research">Link to past Research Library:</label>
+                                                <input
+                                                    type="text"
+                                                    id="research"
+                                                    placeholder="Enter your research link"
+                                                    required
+                                                />
+                                            </div> 
+                                        {% endcomment %}
                                     </div>
                                     <div class="create-password">
                                         <div class="set-password">
                                             <label for="linkedinlink">Link to Your LinkedIn:</label>
                                             <input
-                                                type="password"
+                                                type="text"
+                                                name="linkedin_url"
                                                 id="linkedinlink"
                                                 placeholder="e.g. linkedin.com/username"
                                                 required
+                                                value="{{request.user.user_profile.linkedin_url}}"
                                             />
                                         </div>
                                         <div class="confirm-password">
-                                            <label for="twitterlink">Link to Your Twitter:</label>
+                                            <label for="twitterlink">Link to Your X(Twitter):</label>
                                             <input
-                                                type="password"
+                                                type="text"
+                                                name="x_url"
                                                 id="twitterlink"
-                                                placeholder="e.g. twitter.com/username"
+                                                placeholder="e.g. x.com/username"
                                                 required
+                                                value="{{request.user.user_profile.x_url}}"
                                             />
                                         </div>
                                     </div>
@@ -266,8 +288,13 @@
     
                                     <div class="about-me">
                                         <label for="about-me">About Me</label>
-                                        <textarea name="about-me" id="about-me"
-                                            placeholder="Let us know about you"></textarea>
+                                        <textarea 
+                                            name="about_me" 
+                                            id="about-me"
+                                            placeholder="Let us know about you"
+                                            >
+                                            {{request.user.user_profile.about_me}}
+                                        </textarea>
                                     </div>
     
                                     <div class="profile-picture">
@@ -284,9 +311,10 @@
                                             <p>Add Picture</p>
                                         </div>
                                         <div class="add-image">
-                                            <input type="file" accept="image/*" id="image-upload" />
+                                            <input type="file" accept="image/*" id="image-upload" name="picture"/>
                                         </div>
                                     </div>
+                                    {% comment %}
                                     <div class="create-password">
                                         <div class="set-password">
                                         <label for="createPassword">Set Password:</label>
@@ -307,6 +335,7 @@
                                         />
                                         </div>
                                     </div>
+                                    {% endcomment %}
                                     <button type="submit" class="create">
                                         UPDATE PROFILE
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -329,10 +358,14 @@
                     <article class="journal">
                         <div class="journal-head-heading">
                             <p>{{ journal.post_status | title}}</p>
-                            <a href="#">
-                                {% comment %} Edit {% endcomment %}
-                                <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon">
-                            </a>
+
+                            {% if request.user == journal.user %}
+                                <a href="{% url 'journal:journal_edit' journal.slug %}">
+                                    Edit
+                                    <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon">
+                                </a>
+                            {% endif %}
+
                         </div>
                         <div class="journal-head">
                             <span></span>
@@ -370,7 +403,7 @@
                     {% for article in articles %}
                     <div class="article-head-heading">
                         <p>{{ article.post_status | title}}</p>
-                        <a href="#">
+                        <a href="{% url 'article:article_edit' article.slug %}">
                             <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon"/ >
                         </a>
                     </div>
@@ -427,7 +460,7 @@
                 {% for event in events %}
                 <div class="article-head-heading">
                     <p>{{ event.post_status | title}}</p>
-                    <a href="#">
+                    <a href="{% url 'event:event_edit' event.slug %}">
                         <img src="{% static 'img/jam_pen-f.svg' %}" alt="pen icon"/ >
                     </a>
                 </div>
@@ -705,24 +738,7 @@
                         <p>Issue by Gretee Foundation - Jun. 2021</p>
                     </div>
                 </div>
-                <div class="name-of-award">
-                    <div class="name-of-award-logo">
-                        <img src="{% static 'img/image 10.png' %}" alt="award logo" />
-                    </div>
-                    <div class="name-of-award-info">
-                        <h6>Kikstart Grant awardee</h6>
-                        <p>Issue by Gretee Foundation - Jun. 2021</p>
-                    </div>
-                </div>
-                <div class="name-of-award">
-                    <div class="name-of-award-logo">
-                        <img src="{% static 'img/image 10.png' %}" alt="award logo" />
-                    </div>
-                    <div class="name-of-award-info">
-                        <h6>Kikstart Grant awardee</h6>
-                        <p>Issue by Gretee Foundation - Jun. 2021</p>
-                    </div>
-                </div>
+                
                 <div class="name-of-award">
                     <div class="name-of-award-logo">
                         <img src="{% static 'img/image 11.png' %}" alt="award logo" />

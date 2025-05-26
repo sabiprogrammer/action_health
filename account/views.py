@@ -56,22 +56,49 @@ def register(request):
 
 @login_required
 def user_dashboard(request):
-    user_journals = Journal.objects.filter(user=request.user)
-    user_articles = Article.objects.filter(user=request.user)
-    user_events = Event.objects.filter(user=request.user)
+    user = request.user
+    user_profile = Profile.objects.get(user=user)
+    user_journals = Journal.objects.filter(user=user)
+    user_articles = Article.objects.filter(user=user)
+    user_events = Event.objects.filter(user=user)
+    
+    if request.method == 'POST':
+        profile_form = UserProfileUpdateForm(
+            request.POST or None,
+            request.FILES or None,
+            instance=user_profile
+        )
+        
+        user_form = UserUpdateForm(request.POST or None, instance=user)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            # user_profile = profile_form.save(commit=False)
+            # user_profile.user = user
+            user_profile.save()
+
+            messages.success(
+                request, 'Profile edit Sucessful!')
+            return redirect('account:user_dashboard')
+        else:
+            messages.error(request, 'An error occured while updating your profile...')
     context = {
         'journals':user_journals,
         'articles': user_articles,
         'events': user_events,
+        'user': user,
+        'user_profile': user_profile,
     }
     return render(request, 'account/user_dashboard.html', context)
 
+@login_required
 def user_profile(request):
-    '''
     user = request.user
     user_profile = Profile.objects.get(user=user)
     profile_form = UserProfileUpdateForm(
-        request.POST or None, request.FILES or None, instance=user_profile)
+        request.POST or None,
+        request.FILES or None,
+        instance=user_profile
+    )
     user_form = UserUpdateForm(request.POST or None, instance=user)
 
     if request.method == 'POST':
@@ -93,7 +120,7 @@ def user_profile(request):
         'profile_form': profile_form,
         'user_form': user_form,
     }
-    '''
+    
     return render(request, 'account/user_profile.html', {})
 
 @login_required()

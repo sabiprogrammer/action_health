@@ -103,6 +103,19 @@ def upload_location(instance, filename, *args, **kwargs):
     return file_path
 
 
+# generating user-profile ID
+import random
+import string
+from django.db import models
+
+def generate_unique_id():
+    length = 5
+    while True:
+        unique_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
+        if not Profile.objects.filter(membership_id=unique_id).exists():
+            break
+    return unique_id
+
 class Profile(models.Model):
     GENDER_CHOICES = (
         ('male', 'Male'),
@@ -120,7 +133,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, null=True, related_name='user_profile')
     full_name = models.CharField(max_length=255)
     professional_prefix = models.CharField(max_length=20)
-    # membership_id = models.CharField(max_length=25, unique=True)
+    # membership_id = models.CharField(max_length=5, unique=True, default=generate_unique_id, editable=False)
     country = models.CharField(max_length=255, blank=True, null=True, default="Nigerian")
     date_of_birth = models.CharField(max_length=255, blank=True, null=True)
     workplace = models.CharField(max_length=255, blank=True, null=True)
@@ -132,8 +145,8 @@ class Profile(models.Model):
     gender = models.CharField(
         max_length=10, choices=GENDER_CHOICES, blank=False, null=True)
     membership_level = models.CharField(max_length=50, choices=MEMBERSHIP_LEVEL)
-    # picture = models.ImageField(
-    #     default='profile/avatar.jpg', blank=True, null=True, upload_to=upload_location)
+    picture = models.ImageField(
+        default='profile/avatar.jpg', blank=True, null=True, upload_to=upload_location)
     picture = models.ImageField(blank=True, null=True, upload_to=upload_location)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)

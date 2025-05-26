@@ -30,16 +30,16 @@
             <div class="access-type">
               <div>
                 <img
-                  src="{% static 'img/paid-access-icon.svg' %}"
+                  src="{% static 'img/open-access-icon.svg' %}"
                   alt="Paid access icon"
                 />
-                <p>Paid Access</p>
+                <p>Open Access</p>
               </div>
-              <div>
-                <ul>
-                  <li>Researched Article</li>
-                </ul>
-              </div>
+                <div>
+                  <ul>
+                    <li>Researched Article</li>
+                  </ul>
+                </div>
               <div>
                 <p>Published: {{ journal.date_published|date:"jS F Y" }}</p>
               </div>
@@ -69,10 +69,12 @@
             {% endif %}
           </article>
           <div class="journal-footer">
+            {% comment %}  
             <div>
               <p>AHII: 36084848</p>
               <p>Volume:2023</p>
             </div>
+            {% endcomment %}
             <p>
               <strong>Keyword:</strong> {{ journal.keywords | title}}
             </p>
@@ -81,12 +83,17 @@
       </div>
       <div class="journal-publisher">
         <div class="publisher-img">
-          <img src="{% static 'img/pubimg1.png' %}" alt="logo" />
+          {% if journal.user.user_profile.picture %}
+          <img src="{{ journal.user.user_profile.get_image_url }}" style="width:100%;" alt="logo" />
+          {% else %}
+          <img src="{% static 'img/logo.svg' %}" alt="logo" />
+          {% endif %}
         </div>
         <div class="publisher-details">
           <div>
             <a href="#">
-              Dr. Mary Okafor
+              {{ journal.user.user_profile.professional_prefix }} 
+              {{ journal.user.user_profile.full_name }} 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -101,13 +108,15 @@
               </svg>
             </a>
           </div>
-          <p>Public Health Specialist at St. Luke Hospital Ghana</p>
+          <p>
+            {{ journal.user.user_profile.field }} | {{ journal.user.user_profile.workplace }} 
+          </p>
         </div>
         <div class="publisher-plan">
           <div class="membertype">
             <span></span>
             <div>
-              <p>Associate Member</p>
+              <p>{{ journal.user.user_profile.membership_level |title }}  Member</p>
               <img src="{% static 'img/logo1.png' %}" alt="logo" />
               <p>AHII</p>
             </div>
@@ -369,7 +378,7 @@
           </div>
         </div>
         <div class="publisher-copyright">
-          <p>© 2023 Published by AHII Ltd on behalf of Dr. Mary Okoye</p>
+          <p>© {{ journal.date_published|date:"Y" }} Published by {{ journal.user.user_profile.professional_prefix }} {{ journal.user.user_profile.full_name }} </p>
         </div>
       </div>
 
