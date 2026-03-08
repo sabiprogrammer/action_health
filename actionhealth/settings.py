@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os   
+import os  
+
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +23,57 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1rcqs9m9nzms4yo%=(+wus6+-q1r$(kl6dn#xalzfy_xml0vzt'
+# In production, set DJANGO_SECRET_KEY in the environment.
+# In development, you can set it via a `.env` file.
+
+# Load `.env` from either the project root or one level up (for dev setups where
+# the venv and config live outside the app folder).
+ENV_CANDIDATES = [
+    BASE_DIR / '.env',
+    BASE_DIR.parent / '.env',
+]
+ENV_FILE = None
+ENV_LOADED = False
+for candidate in ENV_CANDIDATES:
+    if candidate.exists():
+        ENV_FILE = candidate
+        ENV_LOADED = True
+        with open(candidate, encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                if '=' not in line:
+                    continue
+                key, value = line.split('=', 1)
+                os.environ.setdefault(key.strip(), value.strip())
+        break
+
+# If DEBUG is enabled, log whether `.env` was loaded so you can verify your runtime config.
+# This is helpful for local dev and should not be relied on for production logging.
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
+if DEBUG:
+    print(f"[settings] env file loaded: {ENV_LOADED} (path={ENV_FILE})")
+
+try:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+except KeyError as e:
+    raise ImproperlyConfigured(
+        'DJANGO_SECRET_KEY environment variable is required. ' 
+        'Set it before running Django (e.g. export DJANGO_SECRET_KEY=...)'
+    ) from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Set DJANGO_DEBUG='False' in production.
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS should be restricted in production. Use a comma-separated list.
+# e.g. DJANGO_ALLOWED_HOSTS="example.com,www.example.com"
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
+    if host.strip()
+]
 
 
 # Application definition
