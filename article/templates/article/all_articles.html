@@ -53,7 +53,7 @@
           </div>
         </div>
   
-        <div class="journals">
+        <div class="journals {% if articles|length == 1 %}single{% endif %}">
           {% for article in articles %}
             <article class="journal">
               {% include 'base/partials/flash_messages.html' %}

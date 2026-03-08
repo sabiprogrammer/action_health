@@ -145,8 +145,6 @@ class Profile(models.Model):
     gender = models.CharField(
         max_length=10, choices=GENDER_CHOICES, blank=False, null=True)
     membership_level = models.CharField(max_length=50, choices=MEMBERSHIP_LEVEL)
-    picture = models.ImageField(
-        default='profile/avatar.jpg', blank=True, null=True, upload_to=upload_location)
     picture = models.ImageField(blank=True, null=True, upload_to=upload_location)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)

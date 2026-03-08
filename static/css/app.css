@@ -71,6 +71,11 @@ header::before {
   background: #1a1a1a;
 }
 
+.logo img {
+  max-width: 60px;
+  height: auto;
+}
+
 .header-cta {
   display: flex;
   gap: 1rem;
@@ -402,6 +407,22 @@ section#journals {
   gap: 3rem;
   flex: 1 0 0;
   border: 1px solid var(--Heading-color, #1a1a1a);
+}
+
+.journals.single {
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 90rem;
+}
+
+/* When there's only one card in a journals list, expand it and center it.
+   This works even when templates don't add a `single` modifier. */
+.journals > .journal:only-child,
+.journals > .not-found:only-child {
+  flex: 0 0 80% !important;
+  max-width: 60rem !important;
+  width: 100% !important;
+  margin: 0 auto !important;
 }
 
 .homepage #events {
@@ -2386,6 +2407,15 @@ summary:focus {
   margin: 0 3.1rem;
 }
 
+/* Layout for journal cards on the main (all journals) page */
+#main-journal #journals .journals .journal {
+  display: flex !important;
+  flex-direction: column;
+  flex: 1 1 30%;
+  min-width: 28rem;
+  max-width: 45rem;
+}
+
 #main-journal #journals h2,
 #main-articles #journals h2 {
   margin: 5rem 9rem 0;
@@ -3096,9 +3126,12 @@ section#journals.single-journals .journals {
 #main-articles #journals .journal {
   flex-direction: row;
   border: none;
-  width: 48%;
+  flex: 1 1 45%;
+  min-width: 28rem;
+  max-width: 60rem;
   border-bottom: 1px solid var(--Heading-color, #1a1a1a);
 }
+
 
 #main-articles #journals .journal h4 {
   align-self: stretch;
@@ -3660,8 +3693,26 @@ p.cost {
 
 .trainings #main-articles #journals .journal {
   flex-direction: column;
-  width: 30%;
+  width: 22% !important;
+  max-width: 22% !important;
+  flex: 0 0 22% !important;
   border-radius: 0.25rem;
+}
+
+@media (max-width: 1200px) {
+  .trainings #main-articles #journals .journal {
+    width: 45% !important;
+    max-width: 45% !important;
+    flex: 0 0 45% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .trainings #main-articles #journals .journal {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
 }
 
 .trainings .event {
@@ -5922,3 +5973,5 @@ p.cost {
     bottom: 0;
   }
 }
+
+/* --- Override for single-item list layout (events/articles/journals) --- */

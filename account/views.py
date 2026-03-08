@@ -121,7 +121,7 @@ def user_profile(request):
         'user_form': user_form,
     }
     
-    return render(request, 'account/user_profile.html', {})
+    return render(request, 'account/user_profile.html', context)
 
 @login_required()
 def logout_page(request):

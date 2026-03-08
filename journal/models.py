@@ -47,7 +47,3 @@ class Journal(models.Model):
         return reverse("journal:journal_detail", kwargs={
             "slug": slugify(self.slug),
         })
-
-    @property
-    def get_image_url(self):
-        return self.picture.url

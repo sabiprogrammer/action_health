@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="journals">
+      <div class="journals {% if journals|length == 1 %}single{% endif %}">
         {% for journal in journals %}
         <article class="journal">
           <div class="journal-head">
@@ -89,8 +89,6 @@
           </div>
         </article>
         {% empty %}
-        <h2>No journals published yet.</h2>
-        {% endfor %}
         <article class="not-found">
           <div class="journal-head">
             <span></span>
@@ -118,6 +116,7 @@
             </a>
           </div>
         </article>
+        {% endfor %}
       </div>
 
       <div class="pagination">

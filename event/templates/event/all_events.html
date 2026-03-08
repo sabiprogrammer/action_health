@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="journals">
+    <div class="journals {% if events|length == 1 %}single{% endif %}">
         <div class="event">
           {% for event in events %}
             <article class="journal">

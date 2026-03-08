@@ -9,6 +9,9 @@ from PIL import Image
 
 User = get_user_model()
 
+def generate_post_code():
+    return str(uuid.uuid4())[:10]
+
 def upload_location(instance, filename, *args, **kwargs):
     file_path = f'article_pictures/{instance.title}/{filename}'
     return file_path
@@ -20,7 +23,7 @@ class Article(models.Model):
     )
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post_code = models.CharField(max_length=10, default=uuid.uuid4) 
+    post_code = models.CharField(max_length=10, default=generate_post_code, unique=True) 
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(unique=True)
     sub_title = models.CharField(max_length=255, blank=True, null=True)
