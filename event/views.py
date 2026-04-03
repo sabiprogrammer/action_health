@@ -1,7 +1,11 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404
 from django.contrib import messages
 from django.urls import reverse
+
+from actionhealth.permissions import can_modify_owned_content
 
 from .forms import AddEventForm
 from .models import Event
@@ -28,7 +32,11 @@ def add_event(request):
 
 def event_detail(request, slug):
     event = get_object_or_404(Event, slug=slug)
-    
+    if not event.is_published:
+        user = request.user
+        if not user.is_authenticated or not can_modify_owned_content(user, event.user_id):
+            raise Http404()
+
     author = event.user
     # author_events = Event.objects.filter(user=author, is_published=True)[:4]
     related_events = Event.objects.filter(is_published=True)[:4]
@@ -42,13 +50,12 @@ def event_detail(request, slug):
 @login_required
 def edit_event(request, slug):
     event = get_object_or_404(Event, slug=slug)
-    form = AddEventForm(request.POST or None, instance=event)
+    if not can_modify_owned_content(request.user, event.user_id):
+        raise PermissionDenied
+    form = AddEventForm(request.POST or None, request.FILES or None, instance=event)
     if request.method == 'POST':
         if form.is_valid():
             event = form.save(commit=False)
-
-            event.user = request.user
-            # event.is_edited = True
             event.save()
 
             messages.success(request, 'event edited sucessfully')

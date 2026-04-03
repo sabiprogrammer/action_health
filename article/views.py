@@ -1,7 +1,11 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404
 from django.contrib import messages
 from django.urls import reverse
+
+from actionhealth.permissions import can_modify_owned_content
 
 from .forms import AddArticleForm
 from .models import Article
@@ -28,7 +32,11 @@ def add_article(request):
 
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    
+    if not article.is_published:
+        user = request.user
+        if not user.is_authenticated or not can_modify_owned_content(user, article.user_id):
+            raise Http404()
+
     author = article.user
     author_articles = Article.objects.filter(user=author, is_published=True)[:4]
     related_articles = Article.objects.filter(user=author, is_published=True)[:0]
@@ -42,13 +50,14 @@ def article_detail(request, slug):
 @login_required
 def edit_article(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    form = AddArticleForm(request.POST or None, instance=article)
+    if not can_modify_owned_content(request.user, article.user_id):
+        raise PermissionDenied
+    form = AddArticleForm(
+        request.POST or None, request.FILES or None, instance=article
+    )
     if request.method == 'POST':
         if form.is_valid():
             article = form.save(commit=False)
-
-            article.user = request.user
-            # article.is_edited = True
             article.save()
 
             messages.success(request, 'article edited sucessfully')

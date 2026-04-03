@@ -1,8 +1,19 @@
+import random
+import string
+
 from PIL import Image
 from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
+
+
+def generate_unique_id():
+    """
+    Kept for account.0001_initial migration (default for historical membership_id).
+    New profiles no longer use this field; it is removed in account.0002.
+    """
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None):
@@ -76,15 +87,20 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
 
+    @property
+    def is_superuser(self):
+        """Aligns with Django admin expectations; mirrors the `admin` flag."""
+        return self.admin
+
     def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
+        if not self.is_active:
+            return False
+        return self.admin
 
     def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
+        if not self.is_active:
+            return False
+        return self.admin
 
     @property
     def is_staff(self):
@@ -103,19 +119,6 @@ def upload_location(instance, filename, *args, **kwargs):
     return file_path
 
 
-# generating user-profile ID
-import random
-import string
-from django.db import models
-
-def generate_unique_id():
-    length = 5
-    while True:
-        unique_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
-        if not Profile.objects.filter(membership_id=unique_id).exists():
-            break
-    return unique_id
-
 class Profile(models.Model):
     GENDER_CHOICES = (
         ('male', 'Male'),
@@ -133,9 +136,8 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, null=True, related_name='user_profile')
     full_name = models.CharField(max_length=255)
     professional_prefix = models.CharField(max_length=20)
-    # membership_id = models.CharField(max_length=5, unique=True, default=generate_unique_id, editable=False)
     country = models.CharField(max_length=255, blank=True, null=True, default="Nigerian")
-    date_of_birth = models.CharField(max_length=255, blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
     workplace = models.CharField(max_length=255, blank=True, null=True)
     field = models.CharField(max_length=255, blank=True, null=True)
     linkedin_url = models.CharField(max_length=255, blank=True, null=True)

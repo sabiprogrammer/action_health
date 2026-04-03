@@ -71,10 +71,8 @@ def user_dashboard(request):
         
         user_form = UserUpdateForm(request.POST or None, instance=user)
         if user_form.is_valid() and profile_form.is_valid():
-            user = user_form.save()
-            # user_profile = profile_form.save(commit=False)
-            # user_profile.user = user
-            user_profile.save()
+            user_form.save()
+            profile_form.save()
 
             messages.success(
                 request, 'Profile edit Sucessful!')
@@ -103,14 +101,12 @@ def user_profile(request):
 
     if request.method == 'POST':
         if user_form.is_valid() and profile_form.is_valid():
-            user = user_form.save()
-            # user_profile = profile_form.save(commit=False)
-            # user_profile.user = user
-            user_profile.save()
+            user_form.save()
+            profile_form.save()
 
             messages.success(
                 request, 'Profile edit Sucessful!')
-            return redirect('account:user-profile')
+            return redirect('account:user_profile')
         else:
             messages.error(request, 'An error occured while updating your profile...')
 

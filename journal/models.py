@@ -2,6 +2,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.db import models
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -28,7 +29,7 @@ class Journal(models.Model):
     is_published = models.BooleanField(default=False)
     # is_edited = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
-    date_published = models.DateTimeField(auto_now_add=True)
+    date_published = models.DateTimeField(blank=True, null=True)
     date_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -38,8 +39,10 @@ class Journal(models.Model):
         return f"{self.title}"
 
     def save(self, *args, **kwargs):
-        if not self.id:
+        if not self.pk:
             self.slug = slugify(self.title)
+        if self.is_published and self.date_published is None:
+            self.date_published = timezone.now()
 
         super(Journal, self).save(*args, **kwargs)
     
