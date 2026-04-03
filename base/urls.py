@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     index, journals, articles, honorees,
-    trainings, events, memberships_info
+    trainings, events, memberships_info, about,
     )
 
 app_name = 'base'
@@ -14,4 +14,5 @@ urlpatterns = [
     path('trainings/', trainings, name='trainings'),
     path('events/', events, name='events'),
     path('memberships/', memberships_info, name='memberships_info'),
+    path('about/', about, name='about'),
 ]

@@ -33,3 +33,7 @@ def events(request):
 
 def memberships_info(request):
     return render(request, 'base/memberships_info.html', {})
+
+
+def about(request):
+    return render(request, 'base/about.html', {})

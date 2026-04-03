@@ -1,0 +1,197 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
+{% endblock extra_css %}
+
+{% block page_title %}About AHII{% endblock page_title %}
+
+{% block content %}
+<body>
+
+  <div class="about-page">
+  {% include "base/partials/navbar.html" %}
+
+  <main>
+    <div class="about-page-intro">
+      <h1>About AHII</h1>
+      <p class="about-lead">
+        Action Health International Institute is a leading institution dedicated to advancing public health
+        and promoting health equity across Africa and globally.
+      </p>
+    </div>
+
+    <div class="about-pillars">
+      <section id="who-we-are" class="about-block about-pillars__cell" aria-labelledby="who-we-are-heading">
+        <h2 id="who-we-are-heading">Who We Are</h2>
+        <p>
+          Action Health International Institute is a leading institution dedicated to advancing public health and
+          promoting health equity across Africa and globally. With a commitment to empowering professionals in the
+          health sector, the institute fosters research, education, and advocacy to address pressing health
+          challenges. We focus on providing public health professionals with the necessary skills, resources, and
+          opportunities to implement impactful, sustainable health solutions within their communities.
+        </p>
+      </section>
+
+      <section id="vision" class="about-block about-pillars__cell" aria-labelledby="vision-heading">
+        <h2 id="vision-heading">Vision</h2>
+        <p>
+          To be a globally recognized leader in advancing health equity by equipping public health professionals
+          with the knowledge, skills, and resources to drive positive health outcomes and foster social justice in health.
+        </p>
+      </section>
+
+      <section id="mission" class="about-block about-pillars__cell" aria-labelledby="mission-heading">
+        <h2 id="mission-heading">Mission</h2>
+        <p>
+          Our mission is to promote health equity across diverse populations by providing high-quality education,
+          research, and advocacy opportunities for public health professionals. We aim to build a network of experts
+          capable of addressing global health challenges, with a particular focus on underserved communities in Africa.
+        </p>
+      </section>
+
+      <section id="what-makes-us-different" class="about-block about-highlight about-pillars__cell" aria-labelledby="different-heading">
+        <h2 id="different-heading">What Makes Us Different</h2>
+        <p>
+          We are dedicated to advancing public health knowledge and fostering professional development.
+          Explore our extensive collection of peer-reviewed journals, covering a wide range of topics.
+        </p>
+      </section>
+
+      <section id="objectives" class="about-block about-pillars__cell about-pillars__full" aria-labelledby="objectives-heading">
+        <h2 id="objectives-heading">Objectives</h2>
+        <ul>
+          <li>To empower public health professionals with the tools and knowledge to address health disparities.</li>
+          <li>To promote evidence-based health policies and practices that improve health outcomes.</li>
+          <li>To foster cross-disciplinary collaborations that tackle complex health issues at local, regional, and global levels.</li>
+          <li>To contribute to the development of sustainable health systems that prioritize equity, access, and inclusion.</li>
+        </ul>
+      </section>
+
+      <section id="core-values" class="about-block about-pillars__cell about-pillars__full" aria-labelledby="core-values-heading">
+        <h2 id="core-values-heading">Core Values</h2>
+        <ul class="about-values-list">
+          <li><strong>Equity:</strong> Commitment to ensuring that everyone has access to quality healthcare, regardless of their socio-economic background.</li>
+          <li><strong>Integrity:</strong> Upholding the highest standards of ethical conduct in all activities and partnerships.</li>
+          <li><strong>Collaboration:</strong> Encouraging partnerships and teamwork to achieve collective health goals.</li>
+          <li><strong>Innovation:</strong> Continuously seeking new and creative solutions to health challenges.</li>
+          <li><strong>Excellence:</strong> Striving for the highest standards of quality in education, research, and health practice.</li>
+          <li><strong>Sustainability:</strong> Promoting practices that ensure long-term positive health outcomes.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section id="core-areas" class="about-block about-block--full" aria-labelledby="core-areas-heading">
+      <h2 id="core-areas-heading">Core Areas of Interest</h2>
+      <ol class="about-numbered">
+        <li>Epidemiology and Disease Prevention</li>
+        <li>Health Promotion and Education</li>
+        <li>Environmental Health and Sustainability</li>
+        <li>Healthcare Systems and Policy</li>
+        <li>Global Health Challenges and Interventions</li>
+      </ol>
+    </section>
+
+    <section id="membership" class="about-block about-block--full" aria-labelledby="membership-heading">
+      <h2 id="membership-heading">AHII Membership</h2>
+
+      <h3>Why Become a Member of AHII?</h3>
+      <ul>
+        <li>
+          AHII is a global public health institute of professionals in public health with the aim of making a lasting
+          impression to improve society. We work very hard to improve the lives of people all around the world.
+        </li>
+        <li>
+          We are an organization limited by guarantee and independent of both governmental and political control.
+          AHII is sustained through membership subscription and donations from our valued members across the globe and well-wishers.
+        </li>
+        <li>
+          In addition, membership of AHII gives you exclusive access to our peer-reviewed journals, including the
+          Action Health International Journal, and participation in our conferences globally.
+        </li>
+      </ul>
+
+      <h3>Membership Levels</h3>
+      <ol class="about-numbered">
+        <li>Fellow (FAHII)</li>
+        <li>Executive (EAHII)</li>
+        <li>Associate (AAHII)</li>
+        <li>Student (SAHII)</li>
+      </ol>
+
+      <h3>Eligibility Criteria</h3>
+      <p>
+        Membership is open to anyone working in public health or the wider health sector, and those studying for a
+        health-related degree in colleges and universities across the globe.
+      </p>
+      <ul class="about-values-list">
+        <li><strong>Fellow:</strong> A career commitment to the improvement of health and/or wellbeing, and educated to post-graduate level or equivalent from an academic institution or a recognised professional body, or five years&rsquo; experience in a public health related post.</li>
+        <li><strong>Executive:</strong> A professional with lifelong achievement in global health advancement.</li>
+        <li><strong>Associate:</strong> A career commitment to the improvement of public health and/or wellbeing.</li>
+        <li><strong>Student:</strong> Undergraduates of colleges and medical institutions across the globe. Students undertaking a full-time undergraduate or post-graduate qualification in public health or a related health discipline.</li>
+      </ul>
+
+      <h3>Join AHII</h3>
+      <p>Follow the steps below to join:</p>
+      <ol class="about-numbered">
+        <li>Sign up for an online account and verify your email address.</li>
+        <li>Log into My AHII and complete the AHII membership application form.</li>
+        <li>Choose your membership level and payment type (you can pay via invoice, credit card, or direct debit).</li>
+        <li>Submit your form; our membership team will review your application.</li>
+        <li>Your membership is confirmed and we will send you a membership certificate.</li>
+      </ol>
+
+      <h3>Membership Fees</h3>
+      <p>Our standard annual membership fees are:</p>
+      <ul class="about-fees">
+        <li><strong>Fellows</strong> &mdash; $200</li>
+        <li><strong>Executive</strong> &mdash; $150</li>
+        <li><strong>Associates</strong> &mdash; $120</li>
+        <li><strong>Students</strong> &mdash; $50</li>
+      </ul>
+
+      <p class="about-cta-links">
+        <a href="{% url 'account:register' %}" class="login about-inline-btn">Become a member</a>
+        <a href="{% url 'base:memberships_info' %}" class="about-inline-btn about-inline-btn--secondary">Membership information</a>
+      </p>
+    </section>
+
+    <section id="contact-addresses" class="about-block about-addresses about-block--full" aria-labelledby="addresses-heading">
+      <h2 id="addresses-heading">Contact &amp; Addresses</h2>
+
+      <h3>Nigeria</h3>
+      <div class="about-address-grid">
+        <div>
+          <h4>Abuja</h4>
+          <p>
+            Suit B06, The Statement Hotel<br />
+            First Avenue, Opposite Adamawa Plaza<br />
+            Central Business District, Abuja
+          </p>
+        </div>
+        <div>
+          <h4>Lagos</h4>
+          <p>
+            11B Emina Crescent<br />
+            Off Toyin Street, Ikeja, Lagos
+          </p>
+        </div>
+      </div>
+
+      <h3>United States</h3>
+      <p>2425 Dakar Drive, Augusta, GA 30906, Georgia</p>
+
+      <h3>Canada &amp; United Kingdom</h3>
+      <p>Regional office addresses for Canada and the United Kingdom are available on request.</p>
+    </section>
+  </main>
+
+  {% include "base/partials/footer.html" %}
+
+  {% include "base/partials/backtotop.html" %}
+  </div>
+
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+{% endblock content %}

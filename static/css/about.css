@@ -1,0 +1,336 @@
+/* About AHII page — loaded after app.css via extra_css block */
+
+.about-page {
+  font-family: "Open Sans", sans-serif;
+  color: #1a1a1a;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ebebeb 0%, #f5f5f5 12rem, #f5f5f5 100%);
+}
+
+.about-page main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+  padding: 10rem 7rem 5rem;
+  max-width: 78rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* app.css sets section { margin-left/right: 7rem } globally — that shrinks grid
+   columns into narrow strips. Reset for all sections inside About main only. */
+.about-page main > section,
+.about-page main .about-pillars > section {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.about-page .about-page-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  padding: 2.75rem 2.5rem 3rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f7fdfd 45%, #fff9f6 100%);
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.about-page .about-page-intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-color-2, #01bfbf) 0%,
+    var(--Brand-color-1, #f4987f) 100%
+  );
+}
+
+.about-page .about-block--full {
+  width: 100%;
+  align-self: stretch;
+}
+
+/* Grouped intro sections: balanced pairs + full-width lists */
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.about-pillars .about-pillars__full {
+  grid-column: 1 / -1;
+}
+
+.about-pillars .about-pillars__cell {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.about-pillars .about-pillars__cell > *:last-child {
+  margin-bottom: 0;
+}
+
+.about-page .about-block {
+  margin-bottom: 0;
+  background: #fff;
+  border: 1px solid rgba(26, 26, 26, 0.07);
+  border-radius: 0.625rem;
+  padding: 1.5rem 1.75rem 1.75rem;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.045);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.about-page .about-block:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+  border-color: rgba(1, 191, 191, 0.25);
+}
+
+.about-page .about-page-intro h1 {
+  color: var(--Heading-color, #1a1a1a);
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1.125rem;
+  letter-spacing: -0.02em;
+}
+
+.about-page .about-lead {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.88);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.about-page .about-block h2 {
+  color: var(--Heading-color, #1a1a1a);
+  font-family: "Lato", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  position: relative;
+  letter-spacing: -0.015em;
+}
+
+.about-page .about-block h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--brand-color-2, #01bfbf),
+    var(--Brand-color-1, #f4987f)
+  );
+  border-radius: 2px;
+}
+
+.about-page .about-block h3 {
+  color: var(--Heading-color, #1a1a1a);
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.65rem;
+  padding-top: 0.25rem;
+}
+
+.about-page .about-block h3:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.about-page .about-block h4 {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.about-page .about-block p,
+.about-page .about-block li {
+  color: rgba(26, 26, 26, 0.92);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+.about-page .about-block p {
+  margin-bottom: 0.85rem;
+}
+
+.about-page .about-block ul,
+.about-page .about-block ol {
+  margin-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.about-page .about-block li {
+  margin-bottom: 0.5rem;
+}
+
+.about-page .about-values-list li {
+  margin-bottom: 0.65rem;
+}
+
+.about-page .about-numbered {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+}
+
+.about-page .about-numbered li {
+  margin-bottom: 0.45rem;
+  padding-left: 0.35rem;
+}
+
+.about-page .about-highlight {
+  padding: 1.5rem 1.75rem 1.75rem;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+  border-radius: 0.625rem;
+  background: linear-gradient(160deg, #fffefb 0%, #fff 40%, #f7fffe 100%);
+  box-shadow: 0.4rem 0.4rem 0 var(--Brand-color-1, #f4987f),
+    0 4px 20px rgba(244, 152, 127, 0.15);
+}
+
+.about-page .about-highlight:hover {
+  border-color: rgba(1, 191, 191, 0.35);
+}
+
+.about-page .about-highlight h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.85rem;
+}
+
+.about-page .about-highlight h2::after {
+  background: var(--Brand-color-1, #f4987f);
+  width: 2.5rem;
+}
+
+.about-page .about-fees {
+  list-style: none;
+  margin-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.about-page .about-fees li {
+  list-style: none;
+  margin-left: 0;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(135deg, #f8fffe 0%, #f5f5f5 100%);
+  border: 1px solid rgba(26, 26, 26, 0.06);
+  border-radius: 0.4rem;
+  border-left: 4px solid var(--brand-color-2, #01bfbf);
+  font-size: 0.98rem;
+}
+
+.about-page .about-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.about-page .about-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0.9375rem 1.875rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+
+.about-page .about-inline-btn--secondary {
+  background: var(--Neutral-Color, #f5f5f5);
+  color: var(--Heading-color, #1a1a1a);
+  border: 1px solid var(--Heading-color, #1a1a1a);
+}
+
+.about-page .about-address-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-page .about-address-grid > div {
+  padding: 1rem 1.1rem;
+  background: rgba(245, 245, 245, 0.85);
+  border-radius: 0.45rem;
+  border: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+.about-page #core-areas .about-numbered li {
+  padding: 0.35rem 0 0.35rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid var(--brand-color-2, #01bfbf);
+  list-style-position: inside;
+}
+
+@media (max-width: 900px) {
+  .about-page {
+    background: #f5f5f5;
+  }
+
+  .about-page main {
+    gap: 1.5rem;
+    padding: 7rem 1.25rem 3.5rem;
+    max-width: 40rem;
+  }
+
+  .about-pillars {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-pillars .about-pillars__full {
+    grid-column: auto;
+  }
+
+  .about-page .about-page-intro {
+    margin-bottom: 0.5rem;
+    padding: 2rem 1.35rem 2.25rem;
+  }
+
+  .about-page .about-page-intro h1 {
+    font-size: 1.75rem;
+  }
+
+  .about-page .about-block {
+    padding: 1.35rem 1.25rem 1.5rem;
+  }
+
+  .about-page .about-block:hover {
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.045);
+  }
+}
+
+/* Large tablets: optional single column if cramped */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .about-pillars {
+    gap: 1.35rem 1.5rem;
+  }
+}
