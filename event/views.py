@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from django.conf import settings
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -9,6 +12,28 @@ from actionhealth.permissions import can_modify_owned_content
 
 from .forms import AddEventForm
 from .models import Event
+
+# Optional extra static image folders under static/img/ keyed by event slug
+_EVENT_GALLERY_FOLDER_BY_SLUG = {
+    "world-hiv-day-2024": "world hiv day",
+}
+
+_GALLERY_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+
+
+def static_gallery_paths_for_event_slug(slug):
+    folder_name = _EVENT_GALLERY_FOLDER_BY_SLUG.get(slug)
+    if not folder_name:
+        return []
+    gallery_dir = Path(settings.BASE_DIR) / "static" / "img" / folder_name
+    if not gallery_dir.is_dir():
+        return []
+    names = sorted(
+        p.name
+        for p in gallery_dir.iterdir()
+        if p.is_file() and p.suffix.lower() in _GALLERY_EXTENSIONS
+    )
+    return [f"img/{folder_name}/{name}".replace("\\", "/") for name in names]
 
 def all_events(request):
     events = Event.objects.filter(is_published=True)
@@ -39,10 +64,11 @@ def event_detail(request, slug):
 
     author = event.user
     # author_events = Event.objects.filter(user=author, is_published=True)[:4]
-    related_events = Event.objects.filter(is_published=True)[:4]
+    related_events = Event.objects.filter(is_published=True).exclude(pk=event.pk)[:4]
     context = {
         'event': event,
         'related_events': related_events,
+        'event_gallery': static_gallery_paths_for_event_slug(event.slug),
     }
     return render(request, 'event/event_detail.html', context)
 

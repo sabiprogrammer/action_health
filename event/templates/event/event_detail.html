@@ -6,7 +6,7 @@
 <body class="single-event">
     {% include "base/partials/navbar.html" %}
     
-    <main id="single-journal">
+    <main id="single-journal" class="event-detail">
       <div class="single-journal-head">
         <div class="journal-title">
           <div class="journals">
@@ -55,9 +55,34 @@
                 <h3><span></span>About this event</h3>
               </div>
 
-              <p>
-                {{ event.description }}
-              </p>
+              <div class="event-description">
+                {{ event.description|linebreaks }}
+              </div>
+
+              {% if event_gallery %}
+              <section class="event-gallery" aria-labelledby="event-gallery-heading">
+                <div class="event-gallery__intro">
+                  <h3 id="event-gallery-heading">Event gallery</h3>
+                  <p class="event-gallery__sub">Scenes and materials from the programme</p>
+                </div>
+                <div class="event-gallery__grid" role="list">
+                  {% for rel_path in event_gallery %}
+                  <div class="event-gallery__cell{% if forloop.first %} event-gallery__cell--feature{% endif %}" role="listitem">
+                    <div class="event-gallery__card">
+                      <img
+                        src="{% static rel_path %}"
+                        alt="{{ event.title }} — gallery image {{ forloop.counter }}"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </section>
+              {% endif %}
             </div>
             <div class="open-access">
               <h3><span></span>The Host or Inviter</h3>

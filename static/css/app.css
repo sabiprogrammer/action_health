@@ -248,15 +248,29 @@ header::before {
   line-height: 1.5rem;
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
 .hero-img {
-  width: 31.24238rem;
-  height: 31.25rem;
+  width: 45%;
+  height: auto;
+  min-height: 31.25rem;
+  overflow: hidden;
 }
 
 .hero-img img {
-  width: auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   position: relative;
   right: 5%;
+  animation: float 3s ease-in-out infinite;
 }
 
 section.cta {
@@ -3344,6 +3358,17 @@ span.epidemiology {
 .publisher-img {
   position: relative;
   right: 0.5rem;
+  width: 12.5rem;
+  height: 12.5rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.publisher-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .single-article .single-journal-head {
   width: 100%;
@@ -3622,6 +3647,189 @@ footer #journals.footer-journals {
 .single-event #single-journal .journals {
   width: 43.75rem;
 }
+
+.single-event .event-description {
+  color: var(--Heading-color, #1a1a1a);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.single-event .event-description p {
+  margin: 0 0 1rem;
+}
+
+.single-event .event-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Event detail — image gallery (only on body.single-event + main.event-detail) */
+body.single-event main#single-journal.event-detail .event-gallery {
+  align-self: stretch;
+  width: 100%;
+  max-width: 43.75rem;
+  margin-top: 2rem;
+  padding: 1.75rem 1.5rem 2rem;
+  box-sizing: border-box;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+  background: linear-gradient(
+    165deg,
+    rgba(1, 191, 191, 0.08) 0%,
+    rgba(245, 245, 245, 0.95) 38%,
+    #fff 100%
+  );
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__intro {
+  margin-bottom: 1.35rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(26, 26, 26, 0.1);
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__intro h3 {
+  margin: 0 0 0.35rem;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--Heading-color, #1a1a1a);
+  letter-spacing: -0.02em;
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__intro h3::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-color-2, #01bfbf),
+    var(--Brand-color-1, #f4987f)
+  );
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__sub {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9375rem;
+  color: rgba(26, 26, 26, 0.72);
+  line-height: 1.45;
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__cell {
+  min-width: 0;
+  display: flex;
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__card {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--Heading-color, #1a1a1a);
+  background: #e8e8e8;
+  box-shadow: 5px 5px 0 0 var(--brand-color-2, #01bfbf);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+body.single-event
+  main#single-journal.event-detail
+  .event-gallery__cell--feature
+  .event-gallery__card {
+  aspect-ratio: 16 / 11;
+  box-shadow: 6px 6px 0 0 var(--Brand-color-1, #f4987f);
+}
+
+@media (min-width: 769px) {
+  body.single-event main#single-journal.event-detail .event-gallery__cell--feature {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  body.single-event
+    main#single-journal.event-detail
+    .event-gallery__cell--feature
+    .event-gallery__card {
+    aspect-ratio: auto;
+    min-height: 17.5rem;
+    height: 100%;
+  }
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__card:hover {
+  box-shadow: 7px 7px 0 0 var(--Brand-color-1, #f4987f);
+  transform: translate(-2px, -2px);
+}
+
+body.single-event
+  main#single-journal.event-detail
+  .event-gallery__cell--feature
+  .event-gallery__card:hover {
+  box-shadow: 8px 8px 0 0 var(--brand-color-2, #01bfbf);
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+body.single-event main#single-journal.event-detail .event-gallery__card:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  body.single-event main#single-journal.event-detail .event-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  body.single-event main#single-journal.event-detail .event-gallery__cell--feature {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  body.single-event
+    main#single-journal.event-detail
+    .event-gallery__cell--feature
+    .event-gallery__card {
+    aspect-ratio: 16 / 10;
+    min-height: 12rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body.single-event main#single-journal.event-detail .event-gallery {
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  body.single-event main#single-journal.event-detail .event-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.single-event main#single-journal.event-detail .event-gallery__cell--feature {
+    grid-column: span 1;
+  }
+}
+
 .single-event main#single-journal {
   padding: 0;
   margin: 0;

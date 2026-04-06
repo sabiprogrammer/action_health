@@ -1,0 +1,42 @@
+[
+  {
+    "email": "dr.sarah.johnson@actionhealth.org",
+    "full_name": "Dr. Sarah Johnson",
+    "professional_prefix": "Dr.",
+    "membership_level": "fellow",
+    "journals": [
+      {
+        "title": "Epidemiological Trends in Non-Communicable Diseases in Urban Nigeria",
+        "sub_title": "A comprehensive analysis of cardiovascular diseases and diabetes prevalence",
+        "abstract": "This study examines the rising prevalence of non-communicable diseases (NCDs) in urban areas of Nigeria, with particular focus on cardiovascular diseases and diabetes. Using data from multiple health facilities across Lagos and Abuja, we analyze trends over the past decade and identify key risk factors contributing to the NCD burden.",
+        "keywords": "Epidemiology, Non-communicable diseases, Cardiovascular health, Diabetes, Urban health",
+        "full_journal": "## Introduction\n\nNon-communicable diseases (NCDs) have emerged as a significant public health challenge in Nigeria, particularly in urban areas where lifestyle changes and environmental factors contribute to increased disease burden. This study provides a comprehensive epidemiological analysis of NCD trends in major Nigerian cities.\n\n## Methodology\n\nData was collected from 15 health facilities across Lagos and Abuja over a 10-year period (2014-2024). The study included:\n- Retrospective analysis of patient records\n- Cross-sectional surveys of risk factors\n- Demographic and socioeconomic data collection\n\n## Key Findings\n\n### Cardiovascular Diseases\n- Prevalence increased by 35% in urban areas\n- Hypertension affects 28% of adults aged 30-60\n- Stroke incidence rose by 42% in the study period\n\n### Diabetes Mellitus\n- Type 2 diabetes prevalence: 12.5% in urban populations\n- Prediabetes affects 18% of the population\n- Strong correlation with obesity and sedentary lifestyle\n\n### Risk Factors\n- Obesity: 45% of urban adults\n- Physical inactivity: 62% report sedentary lifestyle\n- Poor diet: High consumption of processed foods\n\n## Discussion\n\nThe findings highlight the urgent need for comprehensive NCD prevention strategies in urban Nigeria. Key recommendations include:\n- Implementation of city-wide health promotion programs\n- Integration of NCD screening into primary healthcare\n- Policy interventions to improve urban food environments\n- Community-based lifestyle intervention programs\n\n## Conclusion\n\nThe epidemiological transition in Nigeria demands immediate action to address the growing NCD burden. Urban areas face particular challenges that require targeted interventions combining healthcare system strengthening with population-level prevention strategies.",
+        "type": "Research Article",
+        "field": "Epidemiology",
+        "reviewed_by": "Prof. Elizabeth Thompson",
+        "contributor_id_number": "AHII-2024-001",
+        "special_note": "Peer-reviewed and approved for publication"
+      }
+    ]
+  },
+  {
+    "email": "prof.michael.chen@actionhealth.org",
+    "full_name": "Prof. Michael Chen",
+    "professional_prefix": "Prof.",
+    "membership_level": "executive",
+    "journals": [
+      {
+        "title": "Health Policy Reforms and Universal Health Coverage in West Africa",
+        "sub_title": "Lessons from Ghana and Nigeria's healthcare financing systems",
+        "abstract": "This comparative analysis examines health policy reforms aimed at achieving universal health coverage (UHC) in West Africa, focusing on Ghana's National Health Insurance Scheme and Nigeria's ongoing healthcare financing reforms. The study evaluates policy effectiveness, implementation challenges, and recommendations for sustainable UHC.",
+        "keywords": "Health policy, Universal health coverage, Healthcare financing, West Africa, Policy reform",
+        "full_journal": "## Executive Summary\n\nUniversal Health Coverage (UHC) remains a critical goal for West African nations. This study compares health financing reforms in Ghana and Nigeria, providing insights for other countries in the region pursuing similar objectives.\n\n## Background\n\nWest Africa faces significant healthcare financing challenges:\n- Limited government health expenditure\n- High out-of-pocket payments\n- Fragmented health insurance systems\n- Rapid population growth and urbanization\n\n## Ghana's National Health Insurance Scheme (NHIS)\n\n### Structure and Implementation\n- Established in 2003\n- Covers 40% of the population\n- Premium-based system with government subsidies\n- District Mutual Health Insurance Schemes\n\n### Achievements\n- Increased healthcare utilization by 25%\n- Reduced catastrophic health expenditures\n- Improved financial protection for vulnerable groups\n\n### Challenges\n- Sustainability concerns due to funding gaps\n- Quality of care issues in some facilities\n- Administrative inefficiencies\n\n## Nigeria's Healthcare Financing Reforms\n\n### Current System\n- National Health Insurance Scheme (NHIS) established 2005\n- Covers only 5% of the population\n- Fragmented state-level implementations\n- Heavy reliance on out-of-pocket payments\n\n### Ongoing Reforms\n- Basic Health Care Provision Fund (BHCPF)\n- State Social Health Insurance Programs\n- Private sector partnerships\n\n### Implementation Barriers\n- Weak institutional capacity\n- Political interference in state programs\n- Limited financial resources\n- Poor data management systems\n\n## Comparative Analysis\n\n### Policy Effectiveness\n- Ghana: More successful in expanding coverage\n- Nigeria: Better integration with primary healthcare\n- Both countries struggle with financial sustainability\n\n### Key Success Factors\n- Political commitment and leadership\n- Stakeholder engagement\n- Gradual implementation approach\n- Monitoring and evaluation systems\n\n## Recommendations\n\n### For Nigeria\n1. Strengthen NHIS institutional capacity\n2. Increase government health financing to 5% of GDP\n3. Develop state-level implementation frameworks\n4. Improve data collection and management\n5. Enhance private sector participation\n\n### For West Africa Region\n1. Regional knowledge sharing platforms\n2. Harmonized health financing policies\n3. Capacity building programs\n4. South-South cooperation initiatives\n\n## Conclusion\n\nAchieving UHC in West Africa requires sustained political commitment, adequate financing, and strong institutional frameworks. While Ghana provides valuable lessons, each country must adapt reforms to their specific context and capacity constraints.",
+        "type": "Policy Analysis",
+        "field": "Health Policy and Management",
+        "reviewed_by": "Dr. Robert Mensah",
+        "contributor_id_number": "AHII-2024-002",
+        "special_note": "Commissioned policy review"
+      }
+    ]
+  }
+]
