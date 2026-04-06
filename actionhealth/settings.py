@@ -28,34 +28,34 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load `.env` from either the project root or one level up (for dev setups where
 # the venv and config live outside the app folder).
-ENV_CANDIDATES = [
-    BASE_DIR / '.env',
-    BASE_DIR.parent / '.env',
-]
-ENV_FILE = None
-ENV_LOADED = False
-for candidate in ENV_CANDIDATES:
-    if candidate.exists():
-        ENV_FILE = candidate
-        ENV_LOADED = True
-        with open(candidate, encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith('#'):
-                    continue
-                if '=' not in line:
-                    continue
-                key, value = line.split('=', 1)
-                os.environ.setdefault(key.strip(), value.strip())
-        break
+# ENV_CANDIDATES = [
+#     BASE_DIR / '.env',
+#     BASE_DIR.parent / '.env',
+# ]
+# ENV_FILE = None
+# ENV_LOADED = False
+# for candidate in ENV_CANDIDATES:
+#     if candidate.exists():
+#         ENV_FILE = candidate
+#         ENV_LOADED = True
+#         with open(candidate, encoding='utf-8') as f:
+#             for line in f:
+#                 line = line.strip()
+#                 if not line or line.startswith('#'):
+#                     continue
+#                 if '=' not in line:
+#                     continue
+#                 key, value = line.split('=', 1)
+#                 os.environ.setdefault(key.strip(), value.strip())
+#         break
 
-try:
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-except KeyError as e:
-    raise ImproperlyConfigured(
-        'DJANGO_SECRET_KEY environment variable is required. ' 
-        'Set it before running Django (e.g. export DJANGO_SECRET_KEY=...)'
-    ) from e
+# try:
+#     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+# except KeyError as e:
+#     raise ImproperlyConfigured(
+#         'DJANGO_SECRET_KEY environment variable is required. ' 
+#         'Set it before running Django (e.g. export DJANGO_SECRET_KEY=...)'
+#     ) from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set DJANGO_DEBUG='False' in production.
