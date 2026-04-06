@@ -62,23 +62,23 @@ except KeyError as e:
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
 # If DEBUG is enabled, log whether `.env` was loaded so you can verify your runtime config.
-if DEBUG:
-    print(f"[settings] env file loaded: {ENV_LOADED} (path={ENV_FILE})")
+# if DEBUG:
+#     print(f"[settings] env file loaded: {ENV_LOADED} (path={ENV_FILE})")
 
 # ALLOWED_HOSTS should be restricted in production. Use a comma-separated list.
 # e.g. DJANGO_ALLOWED_HOSTS="example.com,www.example.com"
-ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
-    if host.strip()
-]
+# ALLOWED_HOSTS = [
+#     host.strip()
+#     for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
+#     if host.strip()
+# ]
 
-if not DEBUG:
-    if not ALLOWED_HOSTS or '*' in ALLOWED_HOSTS:
-        raise ImproperlyConfigured(
-            'When DJANGO_DEBUG is false, set DJANGO_ALLOWED_HOSTS to an explicit '
-            'comma-separated list of hostnames (wildcard "*" is not allowed).'
-        )
+# if not DEBUG:
+#     if not ALLOWED_HOSTS or '*' in ALLOWED_HOSTS:
+#         raise ImproperlyConfigured(
+#             'When DJANGO_DEBUG is false, set DJANGO_ALLOWED_HOSTS to an explicit '
+#             'comma-separated list of hostnames (wildcard "*" is not allowed).'
+#         )
 
 
 
